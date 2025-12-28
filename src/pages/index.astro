@@ -1,16 +1,264 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Warungin - Aplikasi Kasir untuk UMKM Indonesia">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-purple-600 via-purple-700 to-blue-600 min-h-screen flex items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+          Lihat Lebih Jelas<br/>
+          <span class="text-purple-200">Bisnis Anda</span>
+        </h1>
+        <p class="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+          Aplikasi kasir modern untuk warung dan UMKM Indonesia. 
+          Kelola penjualan, stok, dan laporan dalam satu platform.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="https://app.warungin.com/login" 
+            class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-purple-600 bg-white rounded-xl hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl"
+          >
+            Mulai Gratis
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </a>
+          <a 
+            href="#features" 
+            class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-white/30 rounded-xl hover:bg-white/10 transition-all"
+          >
+            Pelajari Lebih Lanjut
+          </a>
+        </div>
+        <p class="text-purple-200 text-sm mt-6">
+          ✓ 20 transaksi gratis per hari &nbsp; ✓ QRIS gratis &nbsp; ✓ Tanpa kartu kredit
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Semua yang Anda Butuhkan
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Fitur lengkap untuk mengelola bisnis Anda dari mana saja
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <FeatureCard 
+          icon="🛒" 
+          title="POS Mudah" 
+          description="Proses transaksi dengan cepat. Terima pembayaran tunai, QRIS, dan e-wallet."
+        />
+        <FeatureCard 
+          icon="📦" 
+          title="Kelola Stok" 
+          description="Pantau stok produk dan bahan baku. Dapatkan notifikasi saat stok menipis."
+        />
+        <FeatureCard 
+          icon="📊" 
+          title="Laporan Lengkap" 
+          description="Lihat penjualan harian, produk terlaris, dan analisis keuntungan."
+        />
+        <FeatureCard 
+          icon="👥" 
+          title="Manajemen Tim" 
+          description="Tambahkan kasir dan manajer. Atur akses sesuai peran."
+        />
+        <FeatureCard 
+          icon="📱" 
+          title="Akses Dimana Saja" 
+          description="Gunakan dari browser manapun. Tersedia offline untuk transaksi tunai."
+        />
+        <FeatureCard 
+          icon="🧾" 
+          title="Cetak Struk" 
+          description="Cetak struk dari browser atau thermal printer. Kirim ke WhatsApp pelanggan."
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Pilih Paket yang Tepat
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Mulai gratis, upgrade kapan saja sesuai kebutuhan
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Gratis -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:shadow-lg transition-shadow">
+          <div class="text-center mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Gratis</h3>
+            <div class="text-4xl font-bold text-gray-900">Rp 0</div>
+            <p class="text-gray-500 text-sm">selamanya</p>
+          </div>
+          <ul class="space-y-3 mb-8 text-gray-600">
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> 20 transaksi / hari
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> 20 produk
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> QRIS payment
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> Laporan harian
+            </li>
+          </ul>
+          <a href="https://app.warungin.com/login" class="block w-full text-center py-3 px-6 border-2 border-purple-600 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition-colors">
+            Mulai Gratis
+          </a>
+        </div>
+
+        <!-- Pemula -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border-2 border-purple-600 relative hover:shadow-lg transition-shadow">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+            POPULER
+          </div>
+          <div class="text-center mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Pemula</h3>
+            <div class="text-4xl font-bold text-gray-900">Rp 99K</div>
+            <p class="text-gray-500 text-sm">/ bulan</p>
+          </div>
+          <ul class="space-y-3 mb-8 text-gray-600">
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> 500 transaksi / bulan
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> 100 produk
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> GoPay, OVO, Dana
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> Kelola bahan baku
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> Thermal printer
+            </li>
+          </ul>
+          <a href="https://app.warungin.com/login" class="block w-full text-center py-3 px-6 bg-purple-600 text-white font-semibold rounded-xl hover:bg-purple-700 transition-colors">
+            Pilih Pemula
+          </a>
+        </div>
+
+        <!-- Bisnis -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:shadow-lg transition-shadow">
+          <div class="text-center mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Bisnis</h3>
+            <div class="text-4xl font-bold text-gray-900">Rp 249K</div>
+            <p class="text-gray-500 text-sm">/ bulan</p>
+          </div>
+          <ul class="space-y-3 mb-8 text-gray-600">
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> Transaksi unlimited
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> Produk unlimited
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> 5 user / tim
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> Laporan laba rugi
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> Export Excel
+            </li>
+          </ul>
+          <a href="https://app.warungin.com/login" class="block w-full text-center py-3 px-6 border-2 border-purple-600 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition-colors">
+            Pilih Bisnis
+          </a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 shadow-lg text-white hover:shadow-xl transition-shadow">
+          <div class="text-center mb-6">
+            <h3 class="text-xl font-bold mb-2">Enterprise</h3>
+            <div class="text-4xl font-bold">Custom</div>
+            <p class="text-gray-400 text-sm">hubungi kami</p>
+          </div>
+          <ul class="space-y-3 mb-8 text-gray-300">
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">✓</span> Semua fitur Bisnis
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">✓</span> Multi-outlet
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">✓</span> API access
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">✓</span> Account manager
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">✓</span> SLA 99.9%
+            </li>
+          </ul>
+          <a href="mailto:hello@warungin.com" class="block w-full text-center py-3 px-6 bg-white text-gray-900 font-semibold rounded-xl hover:bg-gray-100 transition-colors">
+            Hubungi Kami
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-purple-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+        Siap Mengelola Bisnis Lebih Baik?
+      </h2>
+      <p class="text-xl text-purple-100 mb-8">
+        Bergabung dengan ribuan UMKM yang sudah menggunakan Warungin
+      </p>
+      <a 
+        href="https://app.warungin.com/login" 
+        class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-purple-600 bg-white rounded-xl hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl"
+      >
+        Mulai Gratis Sekarang
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <span class="text-2xl font-bold text-white">Warungin</span>
+          <p class="text-sm mt-2">Aplikasi Kasir untuk UMKM Indonesia</p>
+        </div>
+        <div class="flex gap-8">
+          <a href="#features" class="hover:text-white transition-colors">Fitur</a>
+          <a href="#pricing" class="hover:text-white transition-colors">Harga</a>
+          <a href="mailto:hello@warungin.com" class="hover:text-white transition-colors">Kontak</a>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+        © 2024 Warungin. All rights reserved.
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<!-- Feature Card Component -->
+<script>
+  // No client-side JS needed for now
+</script>
