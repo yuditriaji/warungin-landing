@@ -4,7 +4,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Warungin adalah aplikasi point of sale (POS) untuk UMKM Indonesia. Kelola produk, inventori, laporan penjualan, dan terima pembayaran QRIS. Gratis untuk memulai!" } = Astro.props;
+const { title, description = "Warungin adalah aplikasi point of sale (POS) #1 untuk UMKM Indonesia. Kelola penjualan, stok, dan laporan dalam satu platform. Gratis untuk memulai!" } = Astro.props;
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -14,43 +14,20 @@ const structuredData = {
       "@id": "https://warungin.com/#website",
       "url": "https://warungin.com",
       "name": "Warungin",
-      "description": "Aplikasi Kasir Lengkap dan Terjangkau untuk UMKM Indonesia",
+      "description": "Aplikasi Kasir untuk UMKM Indonesia"
     },
     {
       "@type": "Organization",
       "@id": "https://warungin.com/#organization",
       "name": "Warungin",
-      "url": "https://warungin.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://warungin.com/logo.png"
-      }
+      "url": "https://warungin.com"
     },
     {
       "@type": "SoftwareApplication",
       "name": "Warungin POS",
       "operatingSystem": "Web",
       "applicationCategory": "BusinessApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "IDR"
-      }
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "name": "Masuk",
-      "url": "https://warungin-frontend.vercel.app/login"
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "name": "Harga",
-      "url": "https://warungin.com/#pricing"
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "name": "Fitur",
-      "url": "https://warungin.com/#features"
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "IDR" }
     }
   ]
 };
@@ -62,8 +39,7 @@ const structuredData = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="keywords" content="aplikasi kasir, POS, UMKM, point of sale, kasir digital, QRIS, aplikasi toko, kasir online, software kasir" />
-    <meta name="author" content="Warungin" />
+    <meta name="keywords" content="aplikasi kasir, POS, UMKM, point of sale, kasir digital, QRIS" />
     <meta name="robots" content="index, follow" />
     
     <!-- Open Graph -->
@@ -73,34 +49,27 @@ const structuredData = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href="https://warungin.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <title>{title}</title>
     
-    <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    
+    <style is:global>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: 'Inter', system-ui, sans-serif; }
+      .hero-pattern {
+        background-color: #f8fafc;
+        background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+        background-size: 24px 24px;
+      }
+    </style>
   </head>
-  <body class="font-sans antialiased">
+  <body class="bg-white text-slate-900 overflow-x-hidden">
     <slot />
   </body>
 </html>
-
-<style is:global>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'Inter', system-ui, sans-serif;
-  }
-</style>

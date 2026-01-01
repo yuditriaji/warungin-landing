@@ -1,226 +1,333 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import FeatureCard from '../components/FeatureCard.astro';
 
 const appUrl = "https://warungin-frontend.vercel.app";
 ---
 
-<Layout title="Warungin | Aplikasi Kasir Lengkap dan Terjangkau untuk UMKM">
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-purple-600 via-purple-700 to-blue-600 min-h-screen flex items-center">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div class="text-center">
-        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
-          Aplikasi Kasir <span class="text-purple-200">Lengkap</span><br/>
-          dan <span class="text-purple-200">Terjangkau</span> untuk UMKM
-        </h1>
-        <p class="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-          Kelola produk, inventori, laporan penjualan, dan terima pembayaran digital 
-          dengan mudah. Gratis untuk memulai!
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a 
-            href={`${appUrl}/login`}
-            class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-purple-600 bg-white rounded-xl hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl"
-          >
-            Mulai Gratis
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-            </svg>
-          </a>
-          <a 
-            href="#features" 
-            class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-white/30 rounded-xl hover:bg-white/10 transition-all"
-          >
-            Pelajari Lebih Lanjut
-          </a>
+<Layout title="Warungin - Aplikasi Kasir Modern untuk UMKM Indonesia">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500 text-white">
+          <span class="material-symbols-outlined" style="font-size: 20px;">storefront</span>
         </div>
-        <p class="text-purple-200 text-sm mt-6">
-          ✓ Gratis selamanya untuk paket dasar &nbsp; ✓ Tidak perlu kartu kredit
-        </p>
+        <span class="text-xl font-bold tracking-tight text-slate-900">Warungin</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="text-sm font-medium text-slate-600 hover:text-blue-500 transition-colors" href="#features">Fitur</a>
+        <a class="text-sm font-medium text-slate-600 hover:text-blue-500 transition-colors" href="#testimonials">Testimoni</a>
+        <a class="text-sm font-medium text-slate-600 hover:text-blue-500 transition-colors" href="#pricing">Harga</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a class="hidden text-sm font-medium text-slate-600 hover:text-slate-900 sm:block" href={`${appUrl}/login`}>Masuk</a>
+        <a href={`${appUrl}/login`} class="inline-flex h-9 items-center justify-center rounded-lg bg-blue-500 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 transition-colors">
+          Mulai Gratis
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden pt-16 pb-20 sm:pt-24 lg:pb-32 hero-pattern">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
+        <div class="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
+          <div class="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-600 mb-6 border border-blue-100">
+            <span class="flex h-2 w-2 rounded-full bg-blue-500"></span>
+            Baru: Pembayaran QRIS Langsung
+          </div>
+          <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+            Kelola Warung Jadi <span class="text-blue-500">Lebih Mudah</span>
+          </h1>
+          <p class="mt-6 text-lg text-slate-600">
+            Aplikasi kasir #1 untuk UMKM Indonesia. Kelola penjualan, stok, dan laporan dalam satu platform. Mudah, cepat, dan terpercaya.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-x-6 gap-y-4">
+            <a href={`${appUrl}/login`} class="inline-flex h-12 items-center justify-center rounded-lg bg-blue-500 px-8 text-base font-semibold text-white shadow-sm hover:bg-blue-600 transition-colors">
+              Coba Gratis
+            </a>
+            <a href="#features" class="inline-flex h-12 items-center justify-center rounded-lg border border-slate-200 bg-white px-8 text-base font-semibold text-slate-900 shadow-sm hover:bg-slate-50 transition-colors">
+              <span class="material-symbols-outlined mr-2" style="font-size: 20px;">play_circle</span>
+              Lihat Demo
+            </a>
+          </div>
+          <div class="mt-10 flex items-center gap-x-4">
+            <div class="flex -space-x-2">
+              <img alt="User" class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/women/1.jpg" />
+              <img alt="User" class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/men/2.jpg" />
+              <img alt="User" class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/women/3.jpg" />
+              <img alt="User" class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/men/4.jpg" />
+            </div>
+            <span class="text-sm font-medium text-slate-500">Dipercaya 2.000+ warung</span>
+          </div>
+        </div>
+        <div class="relative mt-10 sm:mt-20 lg:col-span-5 lg:row-span-2 lg:mt-0 xl:col-span-6">
+          <div class="-mx-4 px-9 lg:px-0">
+            <div class="relative mx-auto max-w-[366px] sm:max-w-[600px] lg:max-w-none">
+              <div class="relative rounded-2xl bg-white shadow-2xl ring-1 ring-slate-900/10 p-2">
+                <div class="rounded-xl bg-slate-50 overflow-hidden aspect-[4/3] relative">
+                  <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop" alt="Dashboard POS" class="w-full h-full object-cover opacity-90" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
+                  <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur rounded-lg p-4 shadow-lg border border-slate-100">
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Total Penjualan Hari Ini</span>
+                      <span class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-medium">+12.5%</span>
+                    </div>
+                    <div class="text-2xl font-bold text-slate-900">Rp 2.450.000</div>
+                  </div>
+                  <div class="absolute top-6 right-6 bg-white/95 backdrop-blur rounded-lg p-3 shadow-lg border border-slate-100 flex gap-3 items-center">
+                    <div class="bg-blue-100 p-2 rounded-full text-blue-500">
+                      <span class="material-symbols-outlined text-sm">notifications</span>
+                    </div>
+                    <div class="text-xs font-medium text-slate-700">Stok menipis: Beras 5kg</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Features Section -->
-  <section id="features" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Semua yang Anda Butuhkan
-        </h2>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-          Fitur lengkap untuk mengelola bisnis Anda dari mana saja
-        </p>
+  <!-- Trusted By Section -->
+  <section class="border-y border-slate-200 bg-white py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm font-semibold text-slate-500">DIPERCAYA RIBUAN UMKM DI SELURUH INDONESIA</p>
+      <div class="mt-8 grid grid-cols-2 gap-8 md:grid-cols-5 items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+        <div class="flex justify-center text-xl font-bold text-slate-800">WarungBu</div>
+        <div class="flex justify-center text-xl font-bold text-slate-800">KopiKita</div>
+        <div class="flex justify-center text-xl font-bold text-slate-800">TokoBerkah</div>
+        <div class="flex justify-center text-xl font-bold text-slate-800">BaksoMas</div>
+        <div class="flex justify-center text-xl font-bold text-slate-800">SeblakGo</div>
       </div>
+    </div>
+  </section>
 
+  <!-- Features Grid -->
+  <section class="py-20 bg-slate-50" id="features">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:text-center">
+        <h2 class="text-base font-semibold leading-7 text-blue-500">Fitur Lengkap</h2>
+        <p class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Semua yang Anda Butuhkan</p>
+        <p class="mt-6 text-lg leading-8 text-slate-600">Warungin dibuat untuk kecepatan dan kemudahan. Fokus melayani pelanggan, biarkan kami yang urus sisanya.</p>
+      </div>
+      <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+        <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3">
+          <!-- Feature 1 -->
+          <div class="flex flex-col rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200 transition-all hover:shadow-md">
+            <dt class="flex items-center gap-x-3 text-base font-bold leading-7 text-slate-900">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-blue-500">
+                <span class="material-symbols-outlined">point_of_sale</span>
+              </div>
+              Kasir Cepat
+            </dt>
+            <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-slate-600">
+              <p class="flex-auto">Proses transaksi dalam hitungan detik. Scan barcode atau tap produk di layar. Antrian bergerak cepat.</p>
+            </dd>
+          </div>
+          <!-- Feature 2 -->
+          <div class="flex flex-col rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200 transition-all hover:shadow-md">
+            <dt class="flex items-center gap-x-3 text-base font-bold leading-7 text-slate-900">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-blue-500">
+                <span class="material-symbols-outlined">inventory_2</span>
+              </div>
+              Kelola Stok
+            </dt>
+            <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-slate-600">
+              <p class="flex-auto">Pantau stok produk secara real-time. Dapatkan notifikasi otomatis saat stok menipis.</p>
+            </dd>
+          </div>
+          <!-- Feature 3 -->
+          <div class="flex flex-col rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200 transition-all hover:shadow-md">
+            <dt class="flex items-center gap-x-3 text-base font-bold leading-7 text-slate-900">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-blue-500">
+                <span class="material-symbols-outlined">analytics</span>
+              </div>
+              Laporan Harian
+            </dt>
+            <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-slate-600">
+              <p class="flex-auto">Ketahui keuntungan Anda setiap hari. Lihat produk terlaris dan jam sibuk dalam grafik sederhana.</p>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Feature -->
+  <section class="py-20 bg-white overflow-hidden">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="relative rounded-2xl bg-slate-100 p-4 sm:p-8 order-2 lg:order-1">
+          <div class="absolute -top-12 -left-12 w-48 h-48 bg-blue-200 rounded-full mix-blend-multiply filter blur-2xl opacity-50"></div>
+          <div class="absolute -bottom-12 -right-12 w-48 h-48 bg-cyan-200 rounded-full mix-blend-multiply filter blur-2xl opacity-50"></div>
+          <img alt="Pemilik toko menggunakan tablet" class="relative rounded-xl shadow-lg w-full h-auto object-cover" src="https://images.unsplash.com/photo-1556740758-90de374c12ad?w=600&h=400&fit=crop" />
+        </div>
+        <div class="order-1 lg:order-2">
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Kelola dari mana saja</h2>
+          <p class="mt-4 text-lg text-slate-600">Baik di toko atau di rumah, Warungin tetap menghubungkan Anda dengan bisnis. Sistem cloud kami sync secara real-time.</p>
+          <ul class="mt-8 space-y-5">
+            <li class="flex items-start">
+              <span class="material-symbols-outlined text-green-500 mr-3">check_circle</span>
+              <p class="text-base text-slate-600"><strong class="font-semibold text-slate-900">Mobile App:</strong> Pantau penjualan dari HP Anda.</p>
+            </li>
+            <li class="flex items-start">
+              <span class="material-symbols-outlined text-green-500 mr-3">check_circle</span>
+              <p class="text-base text-slate-600"><strong class="font-semibold text-slate-900">Mode Offline:</strong> Tetap berjualan meski internet mati.</p>
+            </li>
+            <li class="flex items-start">
+              <span class="material-symbols-outlined text-green-500 mr-3">check_circle</span>
+              <p class="text-base text-slate-600"><strong class="font-semibold text-slate-900">Multi User:</strong> Buat akun untuk staff dengan izin berbeda.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-24 bg-slate-50" id="testimonials">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:text-center mb-16">
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900">Dipercaya Pemilik Warung</h2>
+        <p class="mt-4 text-lg text-slate-600">Jangan cuma percaya kata kami. Ini kata pengguna lain.</p>
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <FeatureCard title="Kasir Digital" description="Proses transaksi dengan cepat dan akurat. Tampilan sederhana, mudah digunakan.">
-          <svg slot="icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-          </svg>
-        </FeatureCard>
-        <FeatureCard title="Laporan Real-time" description="Pantau penjualan harian, mingguan, bulanan. Analisis produk terlaris.">
-          <svg slot="icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-          </svg>
-        </FeatureCard>
-        <FeatureCard title="Manajemen Inventori" description="Kelola stok produk dengan notifikasi saat stok menipis.">
-          <svg slot="icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-          </svg>
-        </FeatureCard>
-        <FeatureCard title="Pembayaran QRIS" description="Terima pembayaran digital dengan QRIS milik Anda sendiri.">
-          <svg slot="icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h2M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
-          </svg>
-        </FeatureCard>
-        <FeatureCard title="Multi Pengguna" description="Tambah kasir dan manajer dengan kontrol akses berbeda.">
-          <svg slot="icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-          </svg>
-        </FeatureCard>
-        <FeatureCard title="Multi Outlet" description="Kelola beberapa cabang dari satu dashboard.">
-          <svg slot="icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-          </svg>
-        </FeatureCard>
+        <div class="relative rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-center gap-4 mb-4">
+            <img alt="Ibu Sari" class="h-12 w-12 rounded-full object-cover" src="https://randomuser.me/api/portraits/women/45.jpg" />
+            <div>
+              <h3 class="font-bold text-slate-900">Ibu Sari</h3>
+              <p class="text-sm text-slate-500">Warung Berkah, Bandung</p>
+            </div>
+          </div>
+          <div class="flex text-yellow-400 mb-3">
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+          </div>
+          <p class="text-slate-600 italic">"Warungin bantu saya hemat 2 jam tiap malam nutup buku. Sangat mudah dipakai, bahkan untuk yang gak tech-savvy seperti saya."</p>
+        </div>
+        <div class="relative rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-center gap-4 mb-4">
+            <img alt="Pak Budi" class="h-12 w-12 rounded-full object-cover" src="https://randomuser.me/api/portraits/men/32.jpg" />
+            <div>
+              <h3 class="font-bold text-slate-900">Pak Budi</h3>
+              <p class="text-sm text-slate-500">Toko Sembako Jaya, Jakarta</p>
+            </div>
+          </div>
+          <div class="flex text-yellow-400 mb-3">
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+          </div>
+          <p class="text-slate-600 italic">"Fitur stok ini penyelamat. Saya tahu persis kapan harus restock Indomie dan minyak goreng tanpa hitung manual."</p>
+        </div>
+        <div class="relative rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-center gap-4 mb-4">
+            <img alt="Kak Maya" class="h-12 w-12 rounded-full object-cover" src="https://randomuser.me/api/portraits/women/68.jpg" />
+            <div>
+              <h3 class="font-bold text-slate-900">Kak Maya</h3>
+              <p class="text-sm text-slate-500">Maya Coffee, Surabaya</p>
+            </div>
+          </div>
+          <div class="flex text-yellow-400 mb-3">
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+          </div>
+          <p class="text-slate-600 italic">"Tim support-nya sangat profesional. Waktu saya ada pertanyaan setup printer, mereka bantu via WhatsApp langsung."</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Pricing Section -->
-  <section id="pricing" class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="pricing" class="py-20 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Harga Terjangkau untuk Semua
-        </h2>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-          Mulai gratis, upgrade kapan saja sesuai kebutuhan bisnis Anda
-        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Harga Terjangkau</h2>
+        <p class="text-xl text-slate-600 max-w-2xl mx-auto">Mulai gratis, upgrade kapan saja sesuai kebutuhan</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- Gratis -->
-        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:shadow-lg transition-shadow">
+        <div class="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-slate-200 hover:shadow-lg transition-shadow">
           <div class="text-center mb-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Gratis</h3>
-            <p class="text-sm text-gray-500 mb-2">Untuk memulai bisnis kecil</p>
-            <div class="text-4xl font-bold text-gray-900">Rp 0</div>
-            <p class="text-gray-500 text-sm">selamanya</p>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Gratis</h3>
+            <div class="text-4xl font-bold text-slate-900">Rp 0</div>
+            <p class="text-slate-500 text-sm">selamanya</p>
           </div>
-          <ul class="space-y-3 mb-8 text-gray-600">
-            <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> 1 pengguna
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> 20 produk
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> 20 transaksi/hari
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> QRIS payment
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> Riwayat 30 hari
-            </li>
+          <ul class="space-y-3 mb-8 text-slate-600 text-sm">
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 1 pengguna</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 20 produk</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 20 transaksi/hari</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> QRIS payment</li>
           </ul>
-          <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 border-2 border-purple-600 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition-colors">
+          <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 border-2 border-blue-500 text-blue-500 font-semibold rounded-xl hover:bg-blue-50 transition-colors">
             Mulai Gratis
           </a>
         </div>
 
         <!-- Pemula -->
-        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:shadow-lg transition-shadow">
+        <div class="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-slate-200 hover:shadow-lg transition-shadow">
           <div class="text-center mb-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Pemula</h3>
-            <p class="text-sm text-gray-500 mb-2">Untuk bisnis berkembang</p>
-            <div class="text-4xl font-bold text-gray-900">Rp 99K</div>
-            <p class="text-gray-500 text-sm">/ bulan</p>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Pemula</h3>
+            <div class="text-4xl font-bold text-slate-900">Rp 99K</div>
+            <p class="text-slate-500 text-sm">/ bulan</p>
           </div>
-          <ul class="space-y-3 mb-8 text-gray-600">
-            <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> 3 pengguna
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> 100 produk
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> 1000 transaksi/bulan
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> Laporan penjualan
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> Riwayat 1 tahun
-            </li>
+          <ul class="space-y-3 mb-8 text-slate-600 text-sm">
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 3 pengguna</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 100 produk</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 1000 transaksi/bulan</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Laporan penjualan</li>
           </ul>
-          <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 border-2 border-purple-600 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition-colors">
+          <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 border-2 border-blue-500 text-blue-500 font-semibold rounded-xl hover:bg-blue-50 transition-colors">
             Pilih Pemula
           </a>
         </div>
 
         <!-- Bisnis - Popular -->
-        <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-purple-600 relative hover:shadow-xl transition-shadow">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
-            POPULER
-          </div>
+        <div class="bg-white rounded-2xl p-8 shadow-lg ring-2 ring-blue-500 relative hover:shadow-xl transition-shadow">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">POPULER</div>
           <div class="text-center mb-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Bisnis</h3>
-            <p class="text-sm text-gray-500 mb-2">Untuk bisnis multi cabang</p>
-            <div class="text-4xl font-bold text-gray-900">Rp 249K</div>
-            <p class="text-gray-500 text-sm">/ bulan</p>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Bisnis</h3>
+            <div class="text-4xl font-bold text-slate-900">Rp 249K</div>
+            <p class="text-slate-500 text-sm">/ bulan</p>
           </div>
-          <ul class="space-y-3 mb-8 text-gray-600">
-            <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> 10 pengguna
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> 1000 produk
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> Unlimited transaksi
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> 3 outlet
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> Manajemen stok
-            </li>
+          <ul class="space-y-3 mb-8 text-slate-600 text-sm">
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 10 pengguna</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 1000 produk</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Unlimited transaksi</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 3 outlet</li>
           </ul>
-          <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 bg-purple-600 text-white font-semibold rounded-xl hover:bg-purple-700 transition-colors">
+          <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 bg-blue-500 text-white font-semibold rounded-xl hover:bg-blue-600 transition-colors">
             Pilih Bisnis
           </a>
         </div>
 
         <!-- Enterprise -->
-        <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 shadow-lg text-white hover:shadow-xl transition-shadow">
+        <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 shadow-lg text-white hover:shadow-xl transition-shadow">
           <div class="text-center mb-6">
             <h3 class="text-xl font-bold mb-2">Enterprise</h3>
-            <p class="text-sm text-gray-400 mb-2">Untuk bisnis skala besar</p>
             <div class="text-4xl font-bold">Rp 499K</div>
-            <p class="text-gray-400 text-sm">/ bulan</p>
+            <p class="text-slate-400 text-sm">/ bulan</p>
           </div>
-          <ul class="space-y-3 mb-8 text-gray-300">
-            <li class="flex items-center gap-2">
-              <span class="text-green-400">✓</span> Unlimited pengguna
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-green-400">✓</span> Unlimited produk
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-green-400">✓</span> Unlimited outlet
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-green-400">✓</span> Prioritas support
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-green-400">✓</span> Custom integrasi
-            </li>
+          <ul class="space-y-3 mb-8 text-slate-300 text-sm">
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-400 text-base">check_circle</span> Unlimited pengguna</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-400 text-base">check_circle</span> Unlimited produk</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-400 text-base">check_circle</span> Unlimited outlet</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-400 text-base">check_circle</span> Prioritas support</li>
           </ul>
-          <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 bg-white text-gray-900 font-semibold rounded-xl hover:bg-gray-100 transition-colors">
+          <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 bg-white text-slate-900 font-semibold rounded-xl hover:bg-slate-100 transition-colors">
             Pilih Enterprise
           </a>
         </div>
@@ -228,90 +335,91 @@ const appUrl = "https://warungin-frontend.vercel.app";
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section id="faq" class="py-20 bg-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Pertanyaan yang Sering Diajukan
-        </h2>
-      </div>
-      <div class="space-y-4">
-        <details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
-          <summary class="flex items-center justify-between p-5 cursor-pointer font-medium text-gray-900 hover:bg-gray-100">
-            Apakah benar-benar gratis?
-            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </summary>
-          <p class="px-5 pb-5 text-gray-600">Ya! Paket Gratis bisa digunakan selamanya dengan batasan 20 produk dan 20 transaksi per hari. Cocok untuk bisnis yang baru mulai.</p>
-        </details>
-        <details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
-          <summary class="flex items-center justify-between p-5 cursor-pointer font-medium text-gray-900 hover:bg-gray-100">
-            Bagaimana cara menerima pembayaran QRIS?
-            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </summary>
-          <p class="px-5 pb-5 text-gray-600">Anda bisa menggunakan QRIS milik Anda sendiri (dari bank atau e-wallet). Upload gambar QRIS di pengaturan, dan pelanggan bisa scan langsung dari kasir.</p>
-        </details>
-        <details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
-          <summary class="flex items-center justify-between p-5 cursor-pointer font-medium text-gray-900 hover:bg-gray-100">
-            Bisa diakses dari HP?
-            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </summary>
-          <p class="px-5 pb-5 text-gray-600">Ya! Warungin adalah Progressive Web App (PWA) yang bisa diakses dari browser HP, tablet, atau komputer. Bisa juga di-install seperti aplikasi.</p>
-        </details>
-        <details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
-          <summary class="flex items-center justify-between p-5 cursor-pointer font-medium text-gray-900 hover:bg-gray-100">
-            Bagaimana cara upgrade paket?
-            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </summary>
-          <p class="px-5 pb-5 text-gray-600">Upgrade bisa dilakukan kapan saja dari menu Pengaturan. Pilih paket yang sesuai dan fitur baru langsung aktif.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA Section -->
-  <section class="py-20 bg-purple-600">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-        Siap Kelola Bisnis Lebih Mudah?
-      </h2>
-      <p class="text-xl text-purple-100 mb-8">
-        Bergabung dengan ribuan UMKM yang sudah menggunakan Warungin
-      </p>
-      <a 
-        href={`${appUrl}/login`}
-        class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-purple-600 bg-white rounded-xl hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl"
-      >
-        Daftar Gratis Sekarang
-      </a>
+  <section class="relative py-16 sm:py-24 lg:py-32 bg-slate-50">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2 lg:items-center">
+        <div class="max-w-xl lg:max-w-lg">
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Siap mengembangkan bisnis?</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-600">
+            Bergabung dengan ribuan pemilik warung sukses. Mulai gratis tanpa kartu kredit.
+          </p>
+          <div class="mt-6 flex max-w-md gap-x-4">
+            <a href={`${appUrl}/login`} class="flex-none rounded-lg bg-blue-500 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 transition-colors">
+              Mulai Gratis Sekarang
+            </a>
+          </div>
+          <p class="mt-4 text-sm text-slate-500">Gratis selamanya • Tidak perlu kartu kredit</p>
+        </div>
+        <div class="w-full h-full rounded-2xl bg-gradient-to-br from-blue-100 to-cyan-100 p-8 flex items-center justify-center">
+          <div class="text-center">
+            <div class="bg-white p-6 rounded-xl shadow-xl max-w-sm mx-auto transform rotate-2 hover:rotate-0 transition-transform duration-300">
+              <div class="h-2 w-20 bg-slate-200 rounded-full mx-auto mb-4"></div>
+              <div class="space-y-3">
+                <div class="h-4 w-full bg-slate-100 rounded"></div>
+                <div class="h-4 w-3/4 bg-slate-100 rounded"></div>
+              </div>
+              <div class="mt-6">
+                <button class="w-full bg-blue-500 text-white py-2 rounded-lg font-medium text-sm">Proses Penjualan</button>
+              </div>
+            </div>
+            <p class="mt-6 text-sm font-medium text-slate-600">Interface Simpel. Hasil Luar Biasa.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-400 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-6 md:mb-0">
-          <span class="text-2xl font-bold text-white">Warungin</span>
-          <p class="text-sm mt-2">Aplikasi Kasir untuk UMKM Indonesia</p>
+  <footer class="bg-white border-t border-slate-200">
+    <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+      <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+        <div class="space-y-8">
+          <div class="flex items-center gap-2">
+            <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500 text-white">
+              <span class="material-symbols-outlined" style="font-size: 20px;">storefront</span>
+            </div>
+            <span class="text-xl font-bold text-slate-900">Warungin</span>
+          </div>
+          <p class="text-sm leading-6 text-slate-600">Membantu UMKM Indonesia berkembang dengan teknologi modern.</p>
         </div>
-        <div class="flex gap-8">
-          <a href="#features" class="hover:text-white transition-colors">Fitur</a>
-          <a href="#pricing" class="hover:text-white transition-colors">Harga</a>
-          <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
-          <a href={`${appUrl}/login`} class="hover:text-white transition-colors">Masuk</a>
+        <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+          <div class="md:grid md:grid-cols-2 md:gap-8">
+            <div>
+              <h3 class="text-sm font-semibold leading-6 text-slate-900">Produk</h3>
+              <ul class="mt-6 space-y-4" role="list">
+                <li><a class="text-sm leading-6 text-slate-600 hover:text-slate-900" href="#features">Fitur</a></li>
+                <li><a class="text-sm leading-6 text-slate-600 hover:text-slate-900" href="#pricing">Harga</a></li>
+              </ul>
+            </div>
+            <div class="mt-10 md:mt-0">
+              <h3 class="text-sm font-semibold leading-6 text-slate-900">Support</h3>
+              <ul class="mt-6 space-y-4" role="list">
+                <li><a class="text-sm leading-6 text-slate-600 hover:text-slate-900" href="#">Bantuan</a></li>
+                <li><a class="text-sm leading-6 text-slate-600 hover:text-slate-900" href="#">Kontak</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="md:grid md:grid-cols-2 md:gap-8">
+            <div>
+              <h3 class="text-sm font-semibold leading-6 text-slate-900">Perusahaan</h3>
+              <ul class="mt-6 space-y-4" role="list">
+                <li><a class="text-sm leading-6 text-slate-600 hover:text-slate-900" href="#">Tentang</a></li>
+                <li><a class="text-sm leading-6 text-slate-600 hover:text-slate-900" href="#">Karir</a></li>
+              </ul>
+            </div>
+            <div class="mt-10 md:mt-0">
+              <h3 class="text-sm font-semibold leading-6 text-slate-900">Legal</h3>
+              <ul class="mt-6 space-y-4" role="list">
+                <li><a class="text-sm leading-6 text-slate-600 hover:text-slate-900" href="#">Privasi</a></li>
+                <li><a class="text-sm leading-6 text-slate-600 hover:text-slate-900" href="#">Terms</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
-        © 2026 Warungin. All rights reserved.
+      <div class="mt-16 border-t border-slate-900/10 pt-8 sm:mt-20 lg:mt-24">
+        <p class="text-xs leading-5 text-slate-500">© 2026 Warungin. All rights reserved.</p>
       </div>
     </div>
   </footer>
