@@ -1,24 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import FeatureCard from '../components/FeatureCard.astro';
+
+const appUrl = "https://warungin-frontend.vercel.app";
 ---
 
-<Layout title="Warungin - Aplikasi Kasir untuk UMKM Indonesia">
+<Layout title="Warungin | Aplikasi Kasir Lengkap dan Terjangkau untuk UMKM">
   <!-- Hero Section -->
   <section class="bg-gradient-to-br from-purple-600 via-purple-700 to-blue-600 min-h-screen flex items-center">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <div class="text-center">
         <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
-          Lihat Lebih Jelas<br/>
-          <span class="text-purple-200">Bisnis Anda</span>
+          Aplikasi Kasir <span class="text-purple-200">Lengkap</span><br/>
+          dan <span class="text-purple-200">Terjangkau</span> untuk UMKM
         </h1>
         <p class="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-          Aplikasi kasir modern untuk warung dan UMKM Indonesia. 
-          Kelola penjualan, stok, dan laporan dalam satu platform.
+          Kelola produk, inventori, laporan penjualan, dan terima pembayaran digital 
+          dengan mudah. Gratis untuk memulai!
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a 
-            href="https://app.warungin.com/login" 
+            href={`${appUrl}/login`}
             class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-purple-600 bg-white rounded-xl hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl"
           >
             Mulai Gratis
@@ -34,7 +36,7 @@ import FeatureCard from '../components/FeatureCard.astro';
           </a>
         </div>
         <p class="text-purple-200 text-sm mt-6">
-          ✓ 20 transaksi gratis per hari &nbsp; ✓ QRIS gratis &nbsp; ✓ Tanpa kartu kredit
+          ✓ Gratis selamanya untuk paket dasar &nbsp; ✓ Tidak perlu kartu kredit
         </p>
       </div>
     </div>
@@ -53,36 +55,36 @@ import FeatureCard from '../components/FeatureCard.astro';
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <FeatureCard 
-          icon="🛒" 
-          title="POS Mudah" 
-          description="Proses transaksi dengan cepat. Terima pembayaran tunai, QRIS, dan e-wallet."
-        />
-        <FeatureCard 
-          icon="📦" 
-          title="Kelola Stok" 
-          description="Pantau stok produk dan bahan baku. Dapatkan notifikasi saat stok menipis."
-        />
-        <FeatureCard 
-          icon="📊" 
-          title="Laporan Lengkap" 
-          description="Lihat penjualan harian, produk terlaris, dan analisis keuntungan."
-        />
-        <FeatureCard 
-          icon="👥" 
-          title="Manajemen Tim" 
-          description="Tambahkan kasir dan manajer. Atur akses sesuai peran."
-        />
-        <FeatureCard 
-          icon="📱" 
-          title="Akses Dimana Saja" 
-          description="Gunakan dari browser manapun. Tersedia offline untuk transaksi tunai."
-        />
-        <FeatureCard 
-          icon="🧾" 
-          title="Cetak Struk" 
-          description="Cetak struk dari browser atau thermal printer. Kirim ke WhatsApp pelanggan."
-        />
+        <FeatureCard title="Kasir Digital" description="Proses transaksi dengan cepat dan akurat. Tampilan sederhana, mudah digunakan.">
+          <svg slot="icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+        </FeatureCard>
+        <FeatureCard title="Laporan Real-time" description="Pantau penjualan harian, mingguan, bulanan. Analisis produk terlaris.">
+          <svg slot="icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+        </FeatureCard>
+        <FeatureCard title="Manajemen Inventori" description="Kelola stok produk dengan notifikasi saat stok menipis.">
+          <svg slot="icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+          </svg>
+        </FeatureCard>
+        <FeatureCard title="Pembayaran QRIS" description="Terima pembayaran digital dengan QRIS milik Anda sendiri.">
+          <svg slot="icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h2M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+          </svg>
+        </FeatureCard>
+        <FeatureCard title="Multi Pengguna" description="Tambah kasir dan manajer dengan kontrol akses berbeda.">
+          <svg slot="icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </FeatureCard>
+        <FeatureCard title="Multi Outlet" description="Kelola beberapa cabang dari satu dashboard.">
+          <svg slot="icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+        </FeatureCard>
       </div>
     </div>
   </section>
@@ -92,10 +94,10 @@ import FeatureCard from '../components/FeatureCard.astro';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Pilih Paket yang Tepat
+          Harga Terjangkau untuk Semua
         </h2>
         <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-          Mulai gratis, upgrade kapan saja sesuai kebutuhan
+          Mulai gratis, upgrade kapan saja sesuai kebutuhan bisnis Anda
         </p>
       </div>
 
@@ -104,85 +106,91 @@ import FeatureCard from '../components/FeatureCard.astro';
         <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:shadow-lg transition-shadow">
           <div class="text-center mb-6">
             <h3 class="text-xl font-bold text-gray-900 mb-2">Gratis</h3>
+            <p class="text-sm text-gray-500 mb-2">Untuk memulai bisnis kecil</p>
             <div class="text-4xl font-bold text-gray-900">Rp 0</div>
             <p class="text-gray-500 text-sm">selamanya</p>
           </div>
           <ul class="space-y-3 mb-8 text-gray-600">
             <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> 20 transaksi / hari
+              <span class="text-green-500">✓</span> 1 pengguna
             </li>
             <li class="flex items-center gap-2">
               <span class="text-green-500">✓</span> 20 produk
             </li>
             <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> 20 transaksi/hari
+            </li>
+            <li class="flex items-center gap-2">
               <span class="text-green-500">✓</span> QRIS payment
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> Laporan harian
+              <span class="text-green-500">✓</span> Riwayat 30 hari
             </li>
           </ul>
-          <a href="https://app.warungin.com/login" class="block w-full text-center py-3 px-6 border-2 border-purple-600 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition-colors">
+          <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 border-2 border-purple-600 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition-colors">
             Mulai Gratis
           </a>
         </div>
 
         <!-- Pemula -->
-        <div class="bg-white rounded-2xl p-8 shadow-sm border-2 border-purple-600 relative hover:shadow-lg transition-shadow">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
-            POPULER
-          </div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:shadow-lg transition-shadow">
           <div class="text-center mb-6">
             <h3 class="text-xl font-bold text-gray-900 mb-2">Pemula</h3>
+            <p class="text-sm text-gray-500 mb-2">Untuk bisnis berkembang</p>
             <div class="text-4xl font-bold text-gray-900">Rp 99K</div>
             <p class="text-gray-500 text-sm">/ bulan</p>
           </div>
           <ul class="space-y-3 mb-8 text-gray-600">
             <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> 500 transaksi / bulan
+              <span class="text-green-500">✓</span> 3 pengguna
             </li>
             <li class="flex items-center gap-2">
               <span class="text-green-500">✓</span> 100 produk
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> GoPay, OVO, Dana
+              <span class="text-green-500">✓</span> 1000 transaksi/bulan
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> Kelola bahan baku
+              <span class="text-green-500">✓</span> Laporan penjualan
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> Thermal printer
+              <span class="text-green-500">✓</span> Riwayat 1 tahun
             </li>
           </ul>
-          <a href="https://app.warungin.com/login" class="block w-full text-center py-3 px-6 bg-purple-600 text-white font-semibold rounded-xl hover:bg-purple-700 transition-colors">
+          <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 border-2 border-purple-600 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition-colors">
             Pilih Pemula
           </a>
         </div>
 
-        <!-- Bisnis -->
-        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:shadow-lg transition-shadow">
+        <!-- Bisnis - Popular -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-purple-600 relative hover:shadow-xl transition-shadow">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+            POPULER
+          </div>
           <div class="text-center mb-6">
             <h3 class="text-xl font-bold text-gray-900 mb-2">Bisnis</h3>
+            <p class="text-sm text-gray-500 mb-2">Untuk bisnis multi cabang</p>
             <div class="text-4xl font-bold text-gray-900">Rp 249K</div>
             <p class="text-gray-500 text-sm">/ bulan</p>
           </div>
           <ul class="space-y-3 mb-8 text-gray-600">
             <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> Transaksi unlimited
+              <span class="text-green-500">✓</span> 10 pengguna
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> Produk unlimited
+              <span class="text-green-500">✓</span> 1000 produk
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> 5 user / tim
+              <span class="text-green-500">✓</span> Unlimited transaksi
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> Laporan laba rugi
+              <span class="text-green-500">✓</span> 3 outlet
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-green-500">✓</span> Export Excel
+              <span class="text-green-500">✓</span> Manajemen stok
             </li>
           </ul>
-          <a href="https://app.warungin.com/login" class="block w-full text-center py-3 px-6 border-2 border-purple-600 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition-colors">
+          <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 bg-purple-600 text-white font-semibold rounded-xl hover:bg-purple-700 transition-colors">
             Pilih Bisnis
           </a>
         </div>
@@ -191,30 +199,80 @@ import FeatureCard from '../components/FeatureCard.astro';
         <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 shadow-lg text-white hover:shadow-xl transition-shadow">
           <div class="text-center mb-6">
             <h3 class="text-xl font-bold mb-2">Enterprise</h3>
-            <div class="text-4xl font-bold">Custom</div>
-            <p class="text-gray-400 text-sm">hubungi kami</p>
+            <p class="text-sm text-gray-400 mb-2">Untuk bisnis skala besar</p>
+            <div class="text-4xl font-bold">Rp 499K</div>
+            <p class="text-gray-400 text-sm">/ bulan</p>
           </div>
           <ul class="space-y-3 mb-8 text-gray-300">
             <li class="flex items-center gap-2">
-              <span class="text-green-400">✓</span> Semua fitur Bisnis
+              <span class="text-green-400">✓</span> Unlimited pengguna
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-green-400">✓</span> Multi-outlet
+              <span class="text-green-400">✓</span> Unlimited produk
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-green-400">✓</span> API access
+              <span class="text-green-400">✓</span> Unlimited outlet
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-green-400">✓</span> Account manager
+              <span class="text-green-400">✓</span> Prioritas support
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-green-400">✓</span> SLA 99.9%
+              <span class="text-green-400">✓</span> Custom integrasi
             </li>
           </ul>
-          <a href="mailto:hello@warungin.com" class="block w-full text-center py-3 px-6 bg-white text-gray-900 font-semibold rounded-xl hover:bg-gray-100 transition-colors">
-            Hubungi Kami
+          <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 bg-white text-gray-900 font-semibold rounded-xl hover:bg-gray-100 transition-colors">
+            Pilih Enterprise
           </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Pertanyaan yang Sering Diajukan
+        </h2>
+      </div>
+      <div class="space-y-4">
+        <details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-center justify-between p-5 cursor-pointer font-medium text-gray-900 hover:bg-gray-100">
+            Apakah benar-benar gratis?
+            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="px-5 pb-5 text-gray-600">Ya! Paket Gratis bisa digunakan selamanya dengan batasan 20 produk dan 20 transaksi per hari. Cocok untuk bisnis yang baru mulai.</p>
+        </details>
+        <details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-center justify-between p-5 cursor-pointer font-medium text-gray-900 hover:bg-gray-100">
+            Bagaimana cara menerima pembayaran QRIS?
+            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="px-5 pb-5 text-gray-600">Anda bisa menggunakan QRIS milik Anda sendiri (dari bank atau e-wallet). Upload gambar QRIS di pengaturan, dan pelanggan bisa scan langsung dari kasir.</p>
+        </details>
+        <details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-center justify-between p-5 cursor-pointer font-medium text-gray-900 hover:bg-gray-100">
+            Bisa diakses dari HP?
+            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="px-5 pb-5 text-gray-600">Ya! Warungin adalah Progressive Web App (PWA) yang bisa diakses dari browser HP, tablet, atau komputer. Bisa juga di-install seperti aplikasi.</p>
+        </details>
+        <details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-center justify-between p-5 cursor-pointer font-medium text-gray-900 hover:bg-gray-100">
+            Bagaimana cara upgrade paket?
+            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="px-5 pb-5 text-gray-600">Upgrade bisa dilakukan kapan saja dari menu Pengaturan. Pilih paket yang sesuai dan fitur baru langsung aktif.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -223,16 +281,16 @@ import FeatureCard from '../components/FeatureCard.astro';
   <section class="py-20 bg-purple-600">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-        Siap Mengelola Bisnis Lebih Baik?
+        Siap Kelola Bisnis Lebih Mudah?
       </h2>
       <p class="text-xl text-purple-100 mb-8">
         Bergabung dengan ribuan UMKM yang sudah menggunakan Warungin
       </p>
       <a 
-        href="https://app.warungin.com/login" 
+        href={`${appUrl}/login`}
         class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-purple-600 bg-white rounded-xl hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl"
       >
-        Mulai Gratis Sekarang
+        Daftar Gratis Sekarang
       </a>
     </div>
   </section>
@@ -248,17 +306,13 @@ import FeatureCard from '../components/FeatureCard.astro';
         <div class="flex gap-8">
           <a href="#features" class="hover:text-white transition-colors">Fitur</a>
           <a href="#pricing" class="hover:text-white transition-colors">Harga</a>
-          <a href="mailto:hello@warungin.com" class="hover:text-white transition-colors">Kontak</a>
+          <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+          <a href={`${appUrl}/login`} class="hover:text-white transition-colors">Masuk</a>
         </div>
       </div>
       <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
-        © 2024 Warungin. All rights reserved.
+        © 2026 Warungin. All rights reserved.
       </div>
     </div>
   </footer>
 </Layout>
-
-<!-- Feature Card Component -->
-<script>
-  // No client-side JS needed for now
-</script>

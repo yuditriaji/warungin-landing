@@ -1,9 +1,59 @@
 ---
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description = "Warungin adalah aplikasi point of sale (POS) untuk UMKM Indonesia. Kelola produk, inventori, laporan penjualan, dan terima pembayaran QRIS. Gratis untuk memulai!" } = Astro.props;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://warungin.com/#website",
+      "url": "https://warungin.com",
+      "name": "Warungin",
+      "description": "Aplikasi Kasir Lengkap dan Terjangkau untuk UMKM Indonesia",
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://warungin.com/#organization",
+      "name": "Warungin",
+      "url": "https://warungin.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://warungin.com/logo.png"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Warungin POS",
+      "operatingSystem": "Web",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "IDR"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Masuk",
+      "url": "https://warungin-frontend.vercel.app/login"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Harga",
+      "url": "https://warungin.com/#pricing"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Fitur",
+      "url": "https://warungin.com/#features"
+    }
+  ]
+};
 ---
 
 <!doctype html>
@@ -11,12 +61,32 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Warungin - Aplikasi kasir modern untuk warung dan UMKM Indonesia. Kelola penjualan, stok, dan laporan dalam satu platform." />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="aplikasi kasir, POS, UMKM, point of sale, kasir digital, QRIS, aplikasi toko, kasir online, software kasir" />
+    <meta name="author" content="Warungin" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="Warungin" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://warungin.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <title>{title}</title>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
   <body class="font-sans antialiased">
     <slot />
