@@ -252,8 +252,8 @@ const appUrl = "https://app.warungin.com";
   <section id="pricing" class="py-20 bg-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Harga Terjangkau</h2>
-        <p class="text-xl text-slate-600 max-w-2xl mx-auto">Mulai gratis, upgrade kapan saja sesuai kebutuhan</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Harga Terjangkau untuk Semua</h2>
+        <p class="text-xl text-slate-600 max-w-2xl mx-auto">27% lebih murah dari kompetitor dengan fitur lebih lengkap</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -261,53 +261,64 @@ const appUrl = "https://app.warungin.com";
         <div class="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-slate-200 hover:shadow-lg transition-shadow">
           <div class="text-center mb-6">
             <h3 class="text-xl font-bold text-slate-900 mb-2">Gratis</h3>
+            <p class="text-sm text-slate-500 mb-2">Untuk mulai bisnis kecil</p>
             <div class="text-4xl font-bold text-slate-900">Rp 0</div>
             <p class="text-slate-500 text-sm">selamanya</p>
           </div>
           <ul class="space-y-3 mb-8 text-slate-600 text-sm">
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 1 pengguna</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 20 produk</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 20 transaksi/hari</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 30 transaksi/hari</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 50 produk</li>
             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> QRIS payment</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Laporan dasar</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Diskon & promo</li>
           </ul>
           <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 border-2 border-purple-600 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition-colors">
             Mulai Gratis
           </a>
         </div>
 
-        <!-- Pemula -->
-        <div class="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-slate-200 hover:shadow-lg transition-shadow">
+        <!-- Pemula - MOST POPULAR -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg ring-2 ring-purple-600 relative hover:shadow-xl transition-shadow">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full">PALING POPULER</div>
           <div class="text-center mb-6">
             <h3 class="text-xl font-bold text-slate-900 mb-2">Pemula</h3>
-            <div class="text-4xl font-bold text-slate-900">Rp 99K</div>
+            <p class="text-sm text-slate-500 mb-2">27% lebih murah dari kompetitor</p>
+            <div class="text-4xl font-bold text-slate-900">Rp 49K</div>
             <p class="text-slate-500 text-sm">/ bulan</p>
           </div>
           <ul class="space-y-3 mb-8 text-slate-600 text-sm">
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 3 pengguna</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 100 produk</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 1000 transaksi/bulan</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Laporan penjualan</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Unlimited transaksi</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 200 produk</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-purple-600 text-base">stars</span> <strong>Kelola bahan baku</strong></li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-purple-600 text-base">stars</span> <strong>Auto-deduct ingredien</strong></li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 3 pengguna (owner + 2 staff)</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Custom logo struk</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Laporan laba/rugi</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> GoPay, OVO, Dana</li>
           </ul>
-          <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 border-2 border-purple-600 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition-colors">
+          <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 bg-purple-600 text-white font-semibold rounded-xl hover:bg-purple-700 transition-colors">
             Pilih Pemula
           </a>
         </div>
 
-        <!-- Bisnis - Popular -->
-        <div class="bg-white rounded-2xl p-8 shadow-lg ring-2 ring-purple-600 relative hover:shadow-xl transition-shadow">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full">POPULER</div>
+        <!-- Bisnis -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-slate-200 hover:shadow-lg transition-shadow">
           <div class="text-center mb-6">
             <h3 class="text-xl font-bold text-slate-900 mb-2">Bisnis</h3>
-            <div class="text-4xl font-bold text-slate-900">Rp 249K</div>
+            <p class="text-sm text-slate-500 mb-2">Untuk multi-cabang</p>
+            <div class="text-4xl font-bold text-slate-900">Rp 149K</div>
             <p class="text-slate-500 text-sm">/ bulan</p>
           </div>
           <ul class="space-y-3 mb-8 text-slate-600 text-sm">
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 10 pengguna</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 1000 produk</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Unlimited transaksi</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Semua fitur Pemula</li>
             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 3 outlet</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 10 pengguna</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Role Manager</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Laporan per-outlet</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Log aktivitas staff</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> WhatsApp support</li>
           </ul>
-          <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 bg-purple-600 text-white font-semibold rounded-xl hover:bg-purple-700 transition-colors">
+          <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 border-2 border-purple-600 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition-colors">
             Pilih Bisnis
           </a>
         </div>
@@ -316,17 +327,20 @@ const appUrl = "https://app.warungin.com";
         <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 shadow-lg text-white hover:shadow-xl transition-shadow">
           <div class="text-center mb-6">
             <h3 class="text-xl font-bold mb-2">Enterprise</h3>
-            <div class="text-4xl font-bold">Rp 499K</div>
-            <p class="text-slate-400 text-sm">/ bulan</p>
+            <p class="text-sm text-slate-400 mb-2">Untuk bisnis skala besar</p>
+            <div class="text-4xl font-bold">Custom</div>
+            <p class="text-slate-400 text-sm">hubungi kami</p>
           </div>
           <ul class="space-y-3 mb-8 text-slate-300 text-sm">
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-400 text-base">check_circle</span> Unlimited pengguna</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-400 text-base">check_circle</span> Unlimited produk</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-400 text-base">check_circle</span> Semua fitur Bisnis</li>
             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-400 text-base">check_circle</span> Unlimited outlet</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-400 text-base">check_circle</span> Prioritas support</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-400 text-base">check_circle</span> Unlimited pengguna</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-400 text-base">check_circle</span> Inventori terpusat</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-400 text-base">check_circle</span> Account manager</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-400 text-base">check_circle</span> SLA support</li>
           </ul>
           <a href={`${appUrl}/login`} class="block w-full text-center py-3 px-6 bg-white text-slate-900 font-semibold rounded-xl hover:bg-slate-100 transition-colors">
-            Pilih Enterprise
+            Hubungi Sales
           </a>
         </div>
       </div>
