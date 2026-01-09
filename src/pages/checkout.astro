@@ -1,0 +1,198 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const appUrl = "https://app.warungin.com";
+---
+
+<Layout title="Checkout - Pilih Paket Langganan | Warungin">
+  <div class="min-h-screen bg-slate-50">
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
+      <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <a href="/" class="flex items-center gap-2">
+          <img src="/mascot.png" alt="Warungin" class="h-8 w-8" />
+          <span class="text-xl font-bold tracking-tight text-purple-600">Warungin</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Checkout Content -->
+    <main class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <div class="text-center mb-12">
+          <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Pilih Paket Langganan
+          </h1>
+          <p class="mt-4 text-lg text-slate-600">
+            Mulai gratis atau upgrade ke paket berbayar untuk fitur lebih lengkap
+          </p>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid gap-6 lg:grid-cols-3 mb-12">
+          <!-- Pemula -->
+          <div class="relative rounded-2xl bg-white p-8 shadow-lg ring-2 ring-purple-600">
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs font-semibold px-4 py-1 rounded-full">
+              PALING POPULER
+            </div>
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold text-slate-900">Pemula</h3>
+              <div class="mt-4 flex items-baseline">
+                <span class="text-5xl font-bold tracking-tight text-slate-900">Rp 49K</span>
+                <span class="ml-1 text-lg text-slate-500">/bulan</span>
+              </div>
+            </div>
+            <ul class="space-y-4 mb-8 text-sm text-slate-600">
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-green-500 text-base">check_circle</span>
+                <span>Unlimited transaksi</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-green-500 text-base">check_circle</span>
+                <span>200 produk</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-purple-600 text-base">stars</span>
+                <span><strong>Kelola bahan baku</strong></span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-purple-600 text-base">stars</span>
+                <span><strong>Auto-deduct ingredien</strong></span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-green-500 text-base">check_circle</span>
+                <span>3 pengguna (owner + 2 staff)</span>
+              </li>
+            </ul>
+            <a 
+              href={`${appUrl}/login`}
+              class="block w-full rounded-xl bg-purple-600 px-6 py-3 text-center text-base font-semibold text-white shadow-sm hover:bg-purple-700 transition-colors"
+            >
+              Lanjutkan ke Pembayaran
+            </a>
+          </div>
+
+          <!-- Bisnis -->
+          <div class="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold text-slate-900">Bisnis</h3>
+              <div class="mt-4 flex items-baseline">
+                <span class="text-5xl font-bold tracking-tight text-slate-900">Rp 149K</span>
+                <span class="ml-1 text-lg text-slate-500">/bulan</span>
+              </div>
+            </div>
+            <ul class="space-y-4 mb-8 text-sm text-slate-600">
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-green-500 text-base">check_circle</span>
+                <span>Semua fitur Pemula</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-green-500 text-base">check_circle</span>
+                <span>3 outlet</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-green-500 text-base">check_circle</span>
+                <span>10 pengguna</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-green-500 text-base">check_circle</span>
+                <span>Role Manager</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-green-500 text-base">check_circle</span>
+                <span>WhatsApp support</span>
+              </li>
+            </ul>
+            <a 
+              href={`${appUrl}/login`}
+              class="block w-full rounded-xl border-2 border-purple-600 px-6 py-3 text-center text-base font-semibold text-purple-600 hover:bg-purple-50 transition-colors"
+            >
+              Lanjutkan ke Pembayaran
+            </a>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-8 shadow-lg text-white">
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold">Enterprise</h3>
+              <div class="mt-4 flex items-baseline">
+                <span class="text-5xl font-bold tracking-tight">Custom</span>
+              </div>
+              <p class="mt-2 text-sm text-slate-400">Hubungi kami</p>
+            </div>
+            <ul class="space-y-4 mb-8 text-sm text-slate-300">
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+                <span>Semua fitur Bisnis</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+                <span>Unlimited outlet</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+                <span>Unlimited pengguna</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+                <span>Account manager</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+                <span>SLA support</span>
+              </li>
+            </ul>
+            <a 
+              href="mailto:support@warungin.com"
+              class="block w-full rounded-xl bg-white px-6 py-3 text-center text-base font-semibold text-slate-900 hover:bg-slate-100 transition-colors"
+            >
+              Hubungi Sales
+            </a>
+          </div>
+        </div>
+
+        <!-- Terms & Conditions -->
+        <div class="rounded-lg bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h3 class="text-lg font-semibold text-slate-900 mb-4">Syarat & Ketentuan</h3>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-purple-600 text-base">check</span>
+              <span>Paket akan diaktifkan setelah pembayaran berhasil</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-purple-600 text-base">check</span>
+              <span>Pembayaran dapat dilakukan melalui berbagai metode (kartu kredit, e-wallet, transfer bank)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-purple-600 text-base">check</span>
+              <span>Langganan dapat dibatalkan kapan saja tanpa biaya tambahan</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-purple-600 text-base">check</span>
+              <span>Data Anda akan tetap tersimpan meskipun downgrade ke paket gratis</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- FAQ -->
+        <div class="mt-8 rounded-lg bg-slate-100 p-6">
+          <h3 class="text-lg font-semibold text-slate-900 mb-4">Pertanyaan Umum</h3>
+          <div class="space-y-4">
+            <div>
+              <h4 class="font-medium text-slate-900 mb-1">Bagaimana cara pembayaran?</h4>
+              <p class="text-sm text-slate-600">Setelah memilih paket, Anda akan diarahkan ke halaman pembayaran yang aman untuk menyelesaikan transaksi.</p>
+            </div>
+            <div>
+              <h4 class="font-medium text-slate-900 mb-1">Apakah bisa refund?</h4>
+              <p class="text-sm text-slate-600">Kami menawarkan jaminan uang kembali 7 hari untuk paket berbayar jika Anda tidak puas.</p>
+            </div>
+            <div>
+              <h4 class="font-medium text-slate-900 mb-1">Butuh bantuan?</h4>
+              <p class="text-sm text-slate-600">Hubungi kami di <a href="mailto:support@warungin.com" class="text-purple-600 hover:text-purple-700">support@warungin.com</a> atau WhatsApp <a href="https://wa.me/6285770377952" class="text-purple-600 hover:text-purple-700">+62 857-7037-7952</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</Layout>
