@@ -206,7 +206,6 @@ const selectedPlan = url.searchParams.get('plan') || '';
           <!-- Checkout Button -->
           <button 
             id="checkout-btn"
-            onclick="handleCheckout()"
             class="w-full py-4 px-6 bg-purple-600 text-white font-semibold rounded-xl hover:bg-purple-700 transition-colors flex items-center justify-center gap-2 text-lg"
           >
             <span class="material-symbols-outlined">lock</span>
@@ -259,7 +258,7 @@ const selectedPlan = url.searchParams.get('plan') || '';
         </a>
       </div>
 
-      <button onclick="closeModal()" class="w-full mt-4 py-2 text-slate-500 hover:text-slate-700">
+      <button id="cancel-btn" class="w-full mt-4 py-2 text-slate-500 hover:text-slate-700">
         Batal
       </button>
     </div>
@@ -425,6 +424,16 @@ const selectedPlan = url.searchParams.get('plan') || '';
       pm.addEventListener('click', function() {
         selectPaymentMethod(this.dataset.method);
       });
+    });
+
+    // Checkout button click handler
+    document.getElementById('checkout-btn').addEventListener('click', function() {
+      handleCheckout();
+    });
+
+    // Cancel button click handler
+    document.getElementById('cancel-btn').addEventListener('click', function() {
+      closeModal();
     });
 
     // Check URL for pre-selected plan
