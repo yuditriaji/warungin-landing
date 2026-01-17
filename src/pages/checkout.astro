@@ -171,20 +171,32 @@ const selectedPlan = url.searchParams.get('plan') || '';
           <!-- Payment Methods -->
           <div class="mb-6">
             <h3 class="text-sm font-semibold text-slate-700 mb-3">Metode Pembayaran</h3>
-            <div class="grid grid-cols-2 gap-3">
-              <div class="flex items-center gap-2 p-3 bg-slate-50 rounded-lg border border-slate-200">
-                <span class="material-symbols-outlined text-slate-600">account_balance</span>
-                <span class="text-sm text-slate-700">Transfer Bank</span>
+            <div class="grid grid-cols-2 gap-3" id="payment-methods">
+              <div class="payment-method flex items-center gap-2 p-3 bg-purple-50 rounded-lg border-2 border-purple-600 cursor-pointer transition-all" data-method="bank_transfer">
+                <span class="w-4 h-4 rounded-full border-2 border-purple-600 flex items-center justify-center bg-purple-600">
+                  <span class="w-2 h-2 rounded-full bg-white"></span>
+                </span>
+                <span class="material-symbols-outlined text-purple-600">account_balance</span>
+                <span class="text-sm font-medium text-purple-700">Transfer Bank</span>
               </div>
-              <div class="flex items-center gap-2 p-3 bg-slate-50 rounded-lg border border-slate-200">
+              <div class="payment-method flex items-center gap-2 p-3 bg-slate-50 rounded-lg border border-slate-200 cursor-pointer hover:border-purple-300 transition-all" data-method="qris">
+                <span class="w-4 h-4 rounded-full border-2 border-slate-300 flex items-center justify-center">
+                  <span class="w-2 h-2 rounded-full bg-transparent"></span>
+                </span>
                 <span class="material-symbols-outlined text-slate-600">qr_code_2</span>
                 <span class="text-sm text-slate-700">QRIS</span>
               </div>
-              <div class="flex items-center gap-2 p-3 bg-slate-50 rounded-lg border border-slate-200">
+              <div class="payment-method flex items-center gap-2 p-3 bg-slate-50 rounded-lg border border-slate-200 cursor-pointer hover:border-purple-300 transition-all" data-method="virtual_account">
+                <span class="w-4 h-4 rounded-full border-2 border-slate-300 flex items-center justify-center">
+                  <span class="w-2 h-2 rounded-full bg-transparent"></span>
+                </span>
                 <span class="material-symbols-outlined text-slate-600">credit_card</span>
                 <span class="text-sm text-slate-700">Virtual Account</span>
               </div>
-              <div class="flex items-center gap-2 p-3 bg-slate-50 rounded-lg border border-slate-200">
+              <div class="payment-method flex items-center gap-2 p-3 bg-slate-50 rounded-lg border border-slate-200 cursor-pointer hover:border-purple-300 transition-all" data-method="ewallet">
+                <span class="w-4 h-4 rounded-full border-2 border-slate-300 flex items-center justify-center">
+                  <span class="w-2 h-2 rounded-full bg-transparent"></span>
+                </span>
                 <span class="material-symbols-outlined text-slate-600">wallet</span>
                 <span class="text-sm text-slate-700">E-Wallet</span>
               </div>
@@ -359,6 +371,59 @@ const selectedPlan = url.searchParams.get('plan') || '';
     document.querySelectorAll('.checkout-card').forEach(card => {
       card.addEventListener('click', function() {
         selectPlan(this.dataset.plan, parseInt(this.dataset.price));
+      });
+    });
+
+    // Payment method selection
+    const paymentMethods = {
+      'bank_transfer': 'Transfer Bank',
+      'qris': 'QRIS',
+      'virtual_account': 'Virtual Account',
+      'ewallet': 'E-Wallet'
+    };
+    let selectedPaymentMethod = 'bank_transfer';
+
+    function selectPaymentMethod(method) {
+      selectedPaymentMethod = method;
+      
+      document.querySelectorAll('.payment-method').forEach(pm => {
+        const pmMethod = pm.dataset.method;
+        const radio = pm.querySelector('span:first-child');
+        const icon = pm.querySelector('.material-symbols-outlined');
+        const label = pm.querySelector('span:last-child');
+        
+        if (pmMethod === method) {
+          pm.classList.remove('bg-slate-50', 'border', 'border-slate-200');
+          pm.classList.add('bg-purple-50', 'border-2', 'border-purple-600');
+          radio.innerHTML = '<span class="w-2 h-2 rounded-full bg-white"></span>';
+          radio.classList.remove('border-slate-300');
+          radio.classList.add('border-purple-600', 'bg-purple-600');
+          icon.classList.remove('text-slate-600');
+          icon.classList.add('text-purple-600');
+          label.classList.remove('text-slate-700');
+          label.classList.add('text-purple-700', 'font-medium');
+        } else {
+          pm.classList.remove('bg-purple-50', 'border-2', 'border-purple-600');
+          pm.classList.add('bg-slate-50', 'border', 'border-slate-200');
+          radio.innerHTML = '<span class="w-2 h-2 rounded-full bg-transparent"></span>';
+          radio.classList.remove('border-purple-600', 'bg-purple-600');
+          radio.classList.add('border-slate-300');
+          icon.classList.remove('text-purple-600');
+          icon.classList.add('text-slate-600');
+          label.classList.remove('text-purple-700', 'font-medium');
+          label.classList.add('text-slate-700');
+        }
+      });
+
+      // Update links with payment method
+      document.getElementById('login-link').href = `${appUrl}/login?redirect=checkout&plan=${selectedPlan}&method=${selectedPaymentMethod}`;
+      document.getElementById('register-link').href = `${appUrl}/register?redirect=checkout&plan=${selectedPlan}&method=${selectedPaymentMethod}`;
+    }
+
+    // Initialize payment method click handlers
+    document.querySelectorAll('.payment-method').forEach(pm => {
+      pm.addEventListener('click', function() {
+        selectPaymentMethod(this.dataset.method);
       });
     });
 
