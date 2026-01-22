@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const appUrl = "https://app.warungin.com";
+---
+
+<Layout title="Tentang Kami - Warungin" description="Warungin adalah produk dari PT. Sinar Aji Mandiri, perusahaan teknologi yang berfokus pada solusi digital untuk UMKM Indonesia.">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/mascot.png" alt="Warungin" class="h-8 w-8" />
+        <span class="text-xl font-bold tracking-tight text-purple-600">Warungin</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="text-sm font-medium text-slate-600 hover:text-purple-600 transition-colors" href="/#features">Fitur</a>
+        <a class="text-sm font-medium text-slate-600 hover:text-purple-600 transition-colors" href="/#pricing">Harga</a>
+        <a class="text-sm font-medium text-purple-600 font-semibold" href="/about">Tentang</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a class="hidden text-sm font-medium text-slate-600 hover:text-slate-900 sm:block" href={`${appUrl}/login`}>Masuk</a>
+        <a href={`${appUrl}/login`} class="inline-flex h-9 items-center justify-center rounded-lg bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-purple-700 transition-colors">
+          Mulai Gratis
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Content -->
+  <main class="py-16 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+          Tentang Warungin
+        </h1>
+        <p class="mt-6 text-lg text-slate-600 max-w-2xl mx-auto">
+          Membantu UMKM Indonesia bertransformasi digital dengan solusi kasir modern yang mudah dan terjangkau.
+        </p>
+      </div>
+
+      <!-- Company Info Card -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-8 mb-12">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6">Informasi Perusahaan</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-2">Nama Perusahaan</h3>
+            <p class="text-lg font-semibold text-slate-900">PT. Sinar Aji Mandiri</p>
+          </div>
+          
+          <div>
+            <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-2">Nama Bisnis</h3>
+            <p class="text-lg font-semibold text-slate-900">Sinar Aji Mandiri</p>
+          </div>
+          
+          <div>
+            <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-2">Email Bisnis</h3>
+            <a href="mailto:sinarajimandiri@gmail.com" class="text-lg text-purple-600 hover:text-purple-700">
+              sinarajimandiri@gmail.com
+            </a>
+          </div>
+          
+          <div>
+            <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-2">Negara Operasi</h3>
+            <p class="text-lg text-slate-900">Indonesia</p>
+          </div>
+          
+          <div class="md:col-span-2">
+            <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-2">Alamat Bisnis</h3>
+            <p class="text-lg text-slate-900">
+              Jalan Komodor Halim, Perdana Kusumah, No.18<br/>
+              Halim Perdana Kusumah, Makasar<br/>
+              Jakarta Timur, DKI Jakarta 13610<br/>
+              Indonesia
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Warungin -->
+      <div class="prose prose-slate max-w-none">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Tentang Produk</h2>
+        <p class="text-slate-600 mb-6">
+          Warungin adalah aplikasi Point of Sale (POS) yang dirancang khusus untuk membantu pelaku UMKM di Indonesia. Dengan Warungin, Anda dapat dengan mudah mengelola transaksi penjualan, inventori, dan laporan keuangan dalam satu platform yang terintegrasi.
+        </p>
+        
+        <h3 class="text-xl font-semibold text-slate-900 mb-3">Visi Kami</h3>
+        <p class="text-slate-600 mb-6">
+          Menjadi solusi digital terdepan yang memberdayakan jutaan UMKM Indonesia untuk berkembang di era digital.
+        </p>
+        
+        <h3 class="text-xl font-semibold text-slate-900 mb-3">Misi Kami</h3>
+        <ul class="list-disc list-inside text-slate-600 space-y-2 mb-6">
+          <li>Menyediakan aplikasi kasir yang mudah digunakan dan terjangkau</li>
+          <li>Membantu UMKM meningkatkan efisiensi operasional</li>
+          <li>Memberikan insight bisnis melalui laporan yang komprehensif</li>
+          <li>Mendukung digitalisasi pembayaran di Indonesia</li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-12 text-center">
+        <a href={`${appUrl}/login`} class="inline-flex h-12 items-center justify-center rounded-lg bg-purple-600 px-8 text-base font-semibold text-white shadow-sm hover:bg-purple-700 transition-colors">
+          Coba Warungin Gratis
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 bg-slate-50 py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sm text-slate-500">© 2026 PT. Sinar Aji Mandiri. All rights reserved.</p>
+      <div class="mt-4 flex justify-center gap-6">
+        <a href="/" class="text-sm text-slate-500 hover:text-slate-700">Beranda</a>
+        <a href="/kontak" class="text-sm text-slate-500 hover:text-slate-700">Kontak</a>
+        <a href="/about" class="text-sm text-purple-600 font-medium">Tentang</a>
+      </div>
+    </div>
+  </footer>
+</Layout>
