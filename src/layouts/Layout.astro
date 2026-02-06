@@ -82,5 +82,22 @@ const structuredData = {
   </head>
   <body class="bg-white text-slate-900 overflow-x-hidden">
     <slot />
+    
+    <script>
+      // Capture referral code from URL and save to localStorage
+      (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const refCode = urlParams.get('ref');
+        
+        if (refCode) {
+          // Save to localStorage for the app to read during registration
+          localStorage.setItem('referral_code', refCode);
+          
+          // Also redirect to app with the referral code
+          const appUrl = 'https://app.warungin.com';
+          window.location.href = `${appUrl}/login?ref=${refCode}`;
+        }
+      })();
+    </script>
   </body>
 </html>
