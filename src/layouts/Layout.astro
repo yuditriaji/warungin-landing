@@ -84,16 +84,18 @@ const structuredData = {
     <slot />
     
     <script>
-      // Capture referral code from URL and save to localStorage
+      // Capture referral code from URL and save to cookie (shared across subdomains)
       (function() {
         const urlParams = new URLSearchParams(window.location.search);
         const refCode = urlParams.get('ref');
         
         if (refCode) {
-          // Save to localStorage for the app to read during registration
-          localStorage.setItem('referral_code', refCode);
+          // Set cookie with 30 day expiry, accessible on all subdomains
+          const expires = new Date();
+          expires.setTime(expires.getTime() + (30 * 24 * 60 * 60 * 1000)); // 30 days
+          document.cookie = `referral_code=${refCode}; expires=${expires.toUTCString()}; path=/; domain=.warungin.com; SameSite=Lax`;
           
-          // Also redirect to app with the referral code
+          // Redirect to app with the referral code
           const appUrl = 'https://app.warungin.com';
           window.location.href = `${appUrl}/login?ref=${refCode}`;
         }
