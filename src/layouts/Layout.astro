@@ -78,6 +78,38 @@ const structuredData = {
         background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
         background-size: 24px 24px;
       }
+      
+      /* Auto-scrolling carousel animations */
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      
+      @keyframes scroll-reverse {
+        0% {
+          transform: translateX(-50%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+      
+      .animate-scroll {
+        animation: scroll 30s linear infinite;
+      }
+      
+      .animate-scroll-reverse {
+        animation: scroll-reverse 35s linear infinite;
+      }
+      
+      .animate-scroll:hover,
+      .animate-scroll-reverse:hover {
+        animation-play-state: paused;
+      }
     </style>
   </head>
   <body class="bg-white text-slate-900 overflow-x-hidden">

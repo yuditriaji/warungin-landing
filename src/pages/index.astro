@@ -90,50 +90,80 @@ const appUrl = "https://app.warungin.com";
     </div>
   </section>
 
-  <!-- Trusted By Section -->
-  <section class="border-y border-slate-200 bg-gradient-to-b from-slate-50 to-white py-16 md:py-20">
+  <!-- Trusted By Section - Auto Sliding -->
+  <section class="border-y border-slate-200 bg-gradient-to-b from-slate-50 to-white py-16 md:py-20 overflow-hidden">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <p class="text-sm font-semibold text-purple-600 uppercase tracking-wider mb-2">Dipercaya Pelaku Usaha</p>
         <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Bisnis yang Sudah Menggunakan Warungin</h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-        <!-- Mans Lobby -->
-        <a href="https://www.instagram.com/manslobby.id/" target="_blank" class="group flex flex-col items-center p-8 bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 hover:shadow-lg hover:ring-purple-200 transition-all duration-300">
-          <div class="h-24 w-24 mb-4 flex items-center justify-center">
-            <img src="/logo-barber.png" alt="Mans Lobby Barbershop" class="h-full w-full object-contain group-hover:scale-110 transition-transform duration-300" />
-          </div>
-          <h3 class="text-lg font-bold text-slate-900 mb-1">Mans Lobby</h3>
-          <p class="text-sm text-slate-500 mb-3">Barbershop Premium</p>
-          <span class="text-purple-600 text-sm font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-            <span class="material-symbols-outlined text-base">open_in_new</span>
-            Instagram
-          </span>
-        </a>
-        <!-- Pancong Nikmat Abadi -->
-        <a href="https://www.instagram.com/pancongnikmatabadi" target="_blank" class="group flex flex-col items-center p-8 bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 hover:shadow-lg hover:ring-purple-200 transition-all duration-300">
-          <div class="h-24 w-24 mb-4 flex items-center justify-center">
-            <img src="/logo-pancong.jpeg" alt="Pancong Nikmat Abadi" class="h-full w-full object-contain rounded-xl group-hover:scale-110 transition-transform duration-300" />
-          </div>
-          <h3 class="text-lg font-bold text-slate-900 mb-1">Pancong Nikmat Abadi</h3>
-          <p class="text-sm text-slate-500 mb-3">F&B / Kuliner</p>
-          <span class="text-purple-600 text-sm font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-            <span class="material-symbols-outlined text-base">open_in_new</span>
-            Instagram
-          </span>
-        </a>
-        <!-- Lokal Grounds -->
-        <a href="https://www.instagram.com/lokal.grounds/" target="_blank" class="group flex flex-col items-center p-8 bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 hover:shadow-lg hover:ring-purple-200 transition-all duration-300">
-          <div class="h-24 w-24 mb-4 flex items-center justify-center">
-            <img src="/logo-kolektiv.jpg" alt="Lokal Grounds" class="h-full w-full object-contain rounded-xl group-hover:scale-110 transition-transform duration-300" />
-          </div>
-          <h3 class="text-lg font-bold text-slate-900 mb-1">Lokal Grounds</h3>
-          <p class="text-sm text-slate-500 mb-3">Coffee Shop</p>
-          <span class="text-purple-600 text-sm font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-            <span class="material-symbols-outlined text-base">open_in_new</span>
-            Instagram
-          </span>
-        </a>
+      
+      <!-- Carousel Container -->
+      <div class="relative">
+        <div class="trusted-carousel flex gap-8 animate-scroll">
+          <!-- Mans Lobby -->
+          <a href="https://www.instagram.com/manslobby.id/" target="_blank" class="group flex-shrink-0 w-72 flex flex-col items-center p-8 bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 hover:shadow-lg hover:ring-purple-200 transition-all duration-300">
+            <div class="h-24 w-24 mb-4 flex items-center justify-center">
+              <img src="/logo-barber.png" alt="Mans Lobby Barbershop" class="h-full w-full object-contain group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-1">Mans Lobby</h3>
+            <p class="text-sm text-slate-500 mb-3">Barbershop Premium</p>
+          </a>
+          <!-- Pancong Nikmat Abadi -->
+          <a href="https://www.instagram.com/pancongnikmatabadi" target="_blank" class="group flex-shrink-0 w-72 flex flex-col items-center p-8 bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 hover:shadow-lg hover:ring-purple-200 transition-all duration-300">
+            <div class="h-24 w-24 mb-4 flex items-center justify-center">
+              <img src="/logo-pancong.jpeg" alt="Pancong Nikmat Abadi" class="h-full w-full object-contain rounded-xl group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-1">Pancong Nikmat Abadi</h3>
+            <p class="text-sm text-slate-500 mb-3">F&B / Kuliner</p>
+          </a>
+          <!-- Lokal Grounds -->
+          <a href="https://www.instagram.com/lokal.grounds/" target="_blank" class="group flex-shrink-0 w-72 flex flex-col items-center p-8 bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 hover:shadow-lg hover:ring-purple-200 transition-all duration-300">
+            <div class="h-24 w-24 mb-4 flex items-center justify-center">
+              <img src="/logo-kolektiv.jpg" alt="Lokal Grounds" class="h-full w-full object-contain rounded-xl group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-1">Lokal Grounds</h3>
+            <p class="text-sm text-slate-500 mb-3">Coffee Shop</p>
+          </a>
+          <!-- Masakan Mama Mertuo -->
+          <a href="https://www.instagram.com/masakanmamamertuo" target="_blank" class="group flex-shrink-0 w-72 flex flex-col items-center p-8 bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 hover:shadow-lg hover:ring-purple-200 transition-all duration-300">
+            <div class="h-24 w-24 mb-4 flex items-center justify-center">
+              <img src="/logo-padang.jpeg" alt="Masakan Mama Mertuo" class="h-full w-full object-contain rounded-xl group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-1">Masakan Mama Mertuo</h3>
+            <p class="text-sm text-slate-500 mb-3">Rumah Makan Padang</p>
+          </a>
+          
+          <!-- Duplicate for seamless loop -->
+          <a href="https://www.instagram.com/manslobby.id/" target="_blank" class="group flex-shrink-0 w-72 flex flex-col items-center p-8 bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 hover:shadow-lg hover:ring-purple-200 transition-all duration-300">
+            <div class="h-24 w-24 mb-4 flex items-center justify-center">
+              <img src="/logo-barber.png" alt="Mans Lobby Barbershop" class="h-full w-full object-contain group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-1">Mans Lobby</h3>
+            <p class="text-sm text-slate-500 mb-3">Barbershop Premium</p>
+          </a>
+          <a href="https://www.instagram.com/pancongnikmatabadi" target="_blank" class="group flex-shrink-0 w-72 flex flex-col items-center p-8 bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 hover:shadow-lg hover:ring-purple-200 transition-all duration-300">
+            <div class="h-24 w-24 mb-4 flex items-center justify-center">
+              <img src="/logo-pancong.jpeg" alt="Pancong Nikmat Abadi" class="h-full w-full object-contain rounded-xl group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-1">Pancong Nikmat Abadi</h3>
+            <p class="text-sm text-slate-500 mb-3">F&B / Kuliner</p>
+          </a>
+          <a href="https://www.instagram.com/lokal.grounds/" target="_blank" class="group flex-shrink-0 w-72 flex flex-col items-center p-8 bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 hover:shadow-lg hover:ring-purple-200 transition-all duration-300">
+            <div class="h-24 w-24 mb-4 flex items-center justify-center">
+              <img src="/logo-kolektiv.jpg" alt="Lokal Grounds" class="h-full w-full object-contain rounded-xl group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-1">Lokal Grounds</h3>
+            <p class="text-sm text-slate-500 mb-3">Coffee Shop</p>
+          </a>
+          <a href="https://www.instagram.com/masakanmamamertuo" target="_blank" class="group flex-shrink-0 w-72 flex flex-col items-center p-8 bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 hover:shadow-lg hover:ring-purple-200 transition-all duration-300">
+            <div class="h-24 w-24 mb-4 flex items-center justify-center">
+              <img src="/logo-padang.jpeg" alt="Masakan Mama Mertuo" class="h-full w-full object-contain rounded-xl group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-1">Masakan Mama Mertuo</h3>
+            <p class="text-sm text-slate-500 mb-3">Rumah Makan Padang</p>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -220,80 +250,192 @@ const appUrl = "https://app.warungin.com";
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section class="py-24 bg-slate-50" id="testimonials">
+  <!-- Testimonials - Auto Sliding -->
+  <section class="py-24 bg-slate-50 overflow-hidden" id="testimonials">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl lg:text-center mb-16">
         <h2 class="text-3xl font-bold tracking-tight text-slate-900">Dipercaya Pelaku Usaha Jasa</h2>
         <p class="mt-4 text-lg text-slate-600">Lihat bagaimana Warungin membantu bisnis mereka berkembang.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Mans Lobby Barbershop -->
-        <a href="https://www.instagram.com/manslobby.id/" target="_blank" class="relative rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 hover:shadow-lg transition-shadow">
-          <div class="flex items-center gap-4 mb-4">
-            <img src="/logo-barber.png" alt="Mans Lobby" class="h-12 w-12 rounded-full object-cover" />
-            <div>
-              <h3 class="font-bold text-slate-900">Mans Lobby</h3>
-              <p class="text-sm text-slate-500">Barbershop Premium, Jakarta</p>
+      
+      <!-- Testimonials Carousel -->
+      <div class="relative">
+        <div class="testimonials-carousel flex gap-6 animate-scroll-reverse">
+          <!-- Mans Lobby Barbershop -->
+          <a href="https://www.instagram.com/manslobby.id/" target="_blank" class="flex-shrink-0 w-80 relative rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 hover:shadow-lg transition-shadow">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="/logo-barber.png" alt="Mans Lobby" class="h-12 w-12 rounded-full object-cover" />
+              <div>
+                <h3 class="font-bold text-slate-900">Mans Lobby</h3>
+                <p class="text-sm text-slate-500">Barbershop Premium, Jakarta</p>
+              </div>
             </div>
-          </div>
-          <div class="flex text-yellow-400 mb-3">
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-          </div>
-          <p class="text-slate-600 italic">"Warungin membantu kami mengelola transaksi dan melihat insight pelanggan dengan mudah. Recommended!"</p>
-          <p class="text-purple-600 text-sm font-medium mt-3 flex items-center gap-1">
-            <span class="material-symbols-outlined text-base">open_in_new</span>
-            Lihat Instagram
-          </p>
-        </a>
-        <!-- Pancong Nikmat Abadi -->
-        <a href="https://www.instagram.com/pancongnikmatabadi" target="_blank" class="relative rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 hover:shadow-lg transition-shadow">
-          <div class="flex items-center gap-4 mb-4">
-            <img src="/logo-pancong.jpeg" alt="Pancong Nikmat Abadi" class="h-12 w-12 rounded-full object-cover" />
-            <div>
-              <h3 class="font-bold text-slate-900">Pancong Nikmat Abadi</h3>
-              <p class="text-sm text-slate-500">F&B / Kuliner, Jakarta</p>
+            <div class="flex text-yellow-400 mb-3">
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
             </div>
-          </div>
-          <div class="flex text-yellow-400 mb-3">
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-          </div>
-          <p class="text-slate-600 italic">"Fitur laporan harian sangat membantu untuk evaluasi penjualan. Sangat praktis!"</p>
-          <p class="text-purple-600 text-sm font-medium mt-3 flex items-center gap-1">
-            <span class="material-symbols-outlined text-base">open_in_new</span>
-            Lihat Instagram
-          </p>
-        </a>
-        <!-- Lokal Grounds -->
-        <a href="https://www.instagram.com/lokal.grounds/" target="_blank" class="relative rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 hover:shadow-lg transition-shadow">
-          <div class="flex items-center gap-4 mb-4">
-            <img src="/logo-kolektiv.jpg" alt="Lokal Grounds" class="h-12 w-12 rounded-full object-cover" />
-            <div>
-              <h3 class="font-bold text-slate-900">Lokal Grounds</h3>
-              <p class="text-sm text-slate-500">Coffee Shop, Jakarta</p>
+            <p class="text-slate-600 italic">"Warungin membantu kami mengelola transaksi dan melihat insight pelanggan dengan mudah. Recommended!"</p>
+            <p class="text-purple-600 text-sm font-medium mt-3 flex items-center gap-1">
+              <span class="material-symbols-outlined text-base">open_in_new</span>
+              Lihat Instagram
+            </p>
+          </a>
+          <!-- Pancong Nikmat Abadi -->
+          <a href="https://www.instagram.com/pancongnikmatabadi" target="_blank" class="flex-shrink-0 w-80 relative rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 hover:shadow-lg transition-shadow">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="/logo-pancong.jpeg" alt="Pancong Nikmat Abadi" class="h-12 w-12 rounded-full object-cover" />
+              <div>
+                <h3 class="font-bold text-slate-900">Pancong Nikmat Abadi</h3>
+                <p class="text-sm text-slate-500">F&B / Kuliner, Jakarta</p>
+              </div>
             </div>
-          </div>
-          <div class="flex text-yellow-400 mb-3">
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-          </div>
-          <p class="text-slate-600 italic">"Pembayaran QRIS langsung ke rekening tanpa potongan. Top banget!"</p>
-          <p class="text-purple-600 text-sm font-medium mt-3 flex items-center gap-1">
-            <span class="material-symbols-outlined text-base">open_in_new</span>
-            Lihat Instagram
-          </p>
-        </a>
+            <div class="flex text-yellow-400 mb-3">
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+            </div>
+            <p class="text-slate-600 italic">"Fitur laporan harian sangat membantu untuk evaluasi penjualan. Sangat praktis!"</p>
+            <p class="text-purple-600 text-sm font-medium mt-3 flex items-center gap-1">
+              <span class="material-symbols-outlined text-base">open_in_new</span>
+              Lihat Instagram
+            </p>
+          </a>
+          <!-- Lokal Grounds -->
+          <a href="https://www.instagram.com/lokal.grounds/" target="_blank" class="flex-shrink-0 w-80 relative rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 hover:shadow-lg transition-shadow">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="/logo-kolektiv.jpg" alt="Lokal Grounds" class="h-12 w-12 rounded-full object-cover" />
+              <div>
+                <h3 class="font-bold text-slate-900">Lokal Grounds</h3>
+                <p class="text-sm text-slate-500">Coffee Shop, Jakarta</p>
+              </div>
+            </div>
+            <div class="flex text-yellow-400 mb-3">
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+            </div>
+            <p class="text-slate-600 italic">"Pembayaran QRIS langsung ke rekening tanpa potongan. Top banget!"</p>
+            <p class="text-purple-600 text-sm font-medium mt-3 flex items-center gap-1">
+              <span class="material-symbols-outlined text-base">open_in_new</span>
+              Lihat Instagram
+            </p>
+          </a>
+          <!-- Masakan Mama Mertuo -->
+          <a href="https://www.instagram.com/masakanmamamertuo" target="_blank" class="flex-shrink-0 w-80 relative rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 hover:shadow-lg transition-shadow">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="/logo-padang.jpeg" alt="Masakan Mama Mertuo" class="h-12 w-12 rounded-full object-cover" />
+              <div>
+                <h3 class="font-bold text-slate-900">Masakan Mama Mertuo</h3>
+                <p class="text-sm text-slate-500">Rumah Makan Padang, Padang</p>
+              </div>
+            </div>
+            <div class="flex text-yellow-400 mb-3">
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+            </div>
+            <p class="text-slate-600 italic">"Aplikasi yang sangat membantu bisnis rumah makan kami. Pencatatan transaksi jadi lebih rapi dan teratur!"</p>
+            <p class="text-purple-600 text-sm font-medium mt-3 flex items-center gap-1">
+              <span class="material-symbols-outlined text-base">open_in_new</span>
+              Lihat Instagram
+            </p>
+          </a>
+          
+          <!-- Duplicate for seamless loop -->
+          <a href="https://www.instagram.com/manslobby.id/" target="_blank" class="flex-shrink-0 w-80 relative rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 hover:shadow-lg transition-shadow">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="/logo-barber.png" alt="Mans Lobby" class="h-12 w-12 rounded-full object-cover" />
+              <div>
+                <h3 class="font-bold text-slate-900">Mans Lobby</h3>
+                <p class="text-sm text-slate-500">Barbershop Premium, Jakarta</p>
+              </div>
+            </div>
+            <div class="flex text-yellow-400 mb-3">
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+            </div>
+            <p class="text-slate-600 italic">"Warungin membantu kami mengelola transaksi dan melihat insight pelanggan dengan mudah. Recommended!"</p>
+            <p class="text-purple-600 text-sm font-medium mt-3 flex items-center gap-1">
+              <span class="material-symbols-outlined text-base">open_in_new</span>
+              Lihat Instagram
+            </p>
+          </a>
+          <a href="https://www.instagram.com/pancongnikmatabadi" target="_blank" class="flex-shrink-0 w-80 relative rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 hover:shadow-lg transition-shadow">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="/logo-pancong.jpeg" alt="Pancong Nikmat Abadi" class="h-12 w-12 rounded-full object-cover" />
+              <div>
+                <h3 class="font-bold text-slate-900">Pancong Nikmat Abadi</h3>
+                <p class="text-sm text-slate-500">F&B / Kuliner, Jakarta</p>
+              </div>
+            </div>
+            <div class="flex text-yellow-400 mb-3">
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+            </div>
+            <p class="text-slate-600 italic">"Fitur laporan harian sangat membantu untuk evaluasi penjualan. Sangat praktis!"</p>
+            <p class="text-purple-600 text-sm font-medium mt-3 flex items-center gap-1">
+              <span class="material-symbols-outlined text-base">open_in_new</span>
+              Lihat Instagram
+            </p>
+          </a>
+          <a href="https://www.instagram.com/lokal.grounds/" target="_blank" class="flex-shrink-0 w-80 relative rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 hover:shadow-lg transition-shadow">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="/logo-kolektiv.jpg" alt="Lokal Grounds" class="h-12 w-12 rounded-full object-cover" />
+              <div>
+                <h3 class="font-bold text-slate-900">Lokal Grounds</h3>
+                <p class="text-sm text-slate-500">Coffee Shop, Jakarta</p>
+              </div>
+            </div>
+            <div class="flex text-yellow-400 mb-3">
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+            </div>
+            <p class="text-slate-600 italic">"Pembayaran QRIS langsung ke rekening tanpa potongan. Top banget!"</p>
+            <p class="text-purple-600 text-sm font-medium mt-3 flex items-center gap-1">
+              <span class="material-symbols-outlined text-base">open_in_new</span>
+              Lihat Instagram
+            </p>
+          </a>
+          <a href="https://www.instagram.com/masakanmamamertuo" target="_blank" class="flex-shrink-0 w-80 relative rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 hover:shadow-lg transition-shadow">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="/logo-padang.jpeg" alt="Masakan Mama Mertuo" class="h-12 w-12 rounded-full object-cover" />
+              <div>
+                <h3 class="font-bold text-slate-900">Masakan Mama Mertuo</h3>
+                <p class="text-sm text-slate-500">Rumah Makan Padang, Padang</p>
+              </div>
+            </div>
+            <div class="flex text-yellow-400 mb-3">
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+            </div>
+            <p class="text-slate-600 italic">"Aplikasi yang sangat membantu bisnis rumah makan kami. Pencatatan transaksi jadi lebih rapi dan teratur!"</p>
+            <p class="text-purple-600 text-sm font-medium mt-3 flex items-center gap-1">
+              <span class="material-symbols-outlined text-base">open_in_new</span>
+              Lihat Instagram
+            </p>
+          </a>
+        </div>
       </div>
     </div>
   </section>
