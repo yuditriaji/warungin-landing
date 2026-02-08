@@ -132,6 +132,87 @@ const structuredData = {
           window.location.href = `${appUrl}/login?ref=${refCode}`;
         }
       })();
+      
+      // Draggable carousel functionality
+      document.addEventListener('DOMContentLoaded', () => {
+        const carousels = document.querySelectorAll('.trusted-carousel, .testimonials-carousel');
+        
+        carousels.forEach(carousel => {
+          let isDown = false;
+          let startX;
+          let scrollLeft;
+          let animationPaused = false;
+          
+          // Get the parent container for scrolling
+          const container = carousel.parentElement;
+          
+          // Make container scrollable
+          container.style.overflow = 'hidden';
+          container.style.cursor = 'grab';
+          
+          const pauseAnimation = () => {
+            carousel.style.animationPlayState = 'paused';
+            animationPaused = true;
+          };
+          
+          const resumeAnimation = () => {
+            setTimeout(() => {
+              carousel.style.animationPlayState = 'running';
+              animationPaused = false;
+            }, 2000); // Resume after 2 seconds
+          };
+          
+          container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            container.style.cursor = 'grabbing';
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+            pauseAnimation();
+          });
+          
+          container.addEventListener('mouseleave', () => {
+            if (isDown) {
+              isDown = false;
+              container.style.cursor = 'grab';
+              resumeAnimation();
+            }
+          });
+          
+          container.addEventListener('mouseup', () => {
+            isDown = false;
+            container.style.cursor = 'grab';
+            resumeAnimation();
+          });
+          
+          container.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+          });
+          
+          // Touch events for mobile
+          container.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+            pauseAnimation();
+          }, { passive: true });
+          
+          container.addEventListener('touchend', () => {
+            isDown = false;
+            resumeAnimation();
+          });
+          
+          container.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+          }, { passive: true });
+        });
+      });
     </script>
   </body>
 </html>
