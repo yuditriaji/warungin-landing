@@ -443,9 +443,26 @@ const appUrl = "https://app.warungin.com";
   <!-- Pricing Section -->
   <section id="pricing" class="py-20 bg-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
+      <div class="text-center mb-10">
         <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Harga Terjangkau untuk Semua</h2>
         <p class="text-xl text-slate-600 max-w-2xl mx-auto">Fitur premium dengan harga yang ramah di kantong</p>
+      </div>
+
+      <!-- Billing Period Toggle -->
+      <div class="flex justify-center mb-12">
+        <div class="inline-flex bg-slate-100 rounded-2xl p-1.5 gap-1" id="billing-toggle">
+          <button data-period="monthly" class="billing-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all bg-white text-purple-700 shadow-sm">
+            Bulanan
+          </button>
+          <button data-period="quarterly" class="billing-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all text-slate-600 hover:text-slate-900 relative">
+            3 Bulan
+            <span class="absolute -top-2 -right-2 bg-green-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold leading-none">-10%</span>
+          </button>
+          <button data-period="yearly" class="billing-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all text-slate-600 hover:text-slate-900 relative">
+            Tahunan
+            <span class="absolute -top-2 -right-2 bg-green-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold leading-none">-20%</span>
+          </button>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -475,8 +492,11 @@ const appUrl = "https://app.warungin.com";
           <div class="text-center mb-6">
             <h3 class="text-xl font-bold text-slate-900 mb-2">Pemula</h3>
             <p class="text-sm text-slate-500 mb-2">Paling cocok untuk UMKM berkembang</p>
-            <div class="text-4xl font-bold text-slate-900">Rp 49K</div>
-            <p class="text-slate-500 text-sm">/ bulan</p>
+            <div class="price-display" data-plan="pemula">
+              <div class="text-4xl font-bold text-slate-900 transition-all duration-300" data-price-main>Rp 49K</div>
+              <p class="text-slate-500 text-sm" data-price-period>/ bulan</p>
+              <p class="text-green-600 text-xs font-medium mt-1 hidden" data-price-savings></p>
+            </div>
           </div>
           <ul class="space-y-3 mb-8 text-slate-600 text-sm">
             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Unlimited transaksi</li>
@@ -498,8 +518,11 @@ const appUrl = "https://app.warungin.com";
           <div class="text-center mb-6">
             <h3 class="text-xl font-bold text-slate-900 mb-2">Bisnis</h3>
             <p class="text-sm text-slate-500 mb-2">Untuk multi-cabang</p>
-            <div class="text-4xl font-bold text-slate-900">Rp 149K</div>
-            <p class="text-slate-500 text-sm">/ bulan</p>
+            <div class="price-display" data-plan="bisnis">
+              <div class="text-4xl font-bold text-slate-900 transition-all duration-300" data-price-main>Rp 149K</div>
+              <p class="text-slate-500 text-sm" data-price-period>/ bulan</p>
+              <p class="text-green-600 text-xs font-medium mt-1 hidden" data-price-savings></p>
+            </div>
           </div>
           <ul class="space-y-3 mb-8 text-slate-600 text-sm">
             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Semua fitur Pemula</li>
@@ -536,8 +559,87 @@ const appUrl = "https://app.warungin.com";
           </a>
         </div>
       </div>
+
+      <!-- PPN Note -->
+      <p class="text-center text-sm text-slate-500 mt-8">
+        * Harga belum termasuk PPN 11%. Semua pembayaran melalui QRIS.
+      </p>
     </div>
   </section>
+
+  <!-- Pricing Toggle Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const prices = {
+        pemula: { monthly: 49000, quarterly: 132000, yearly: 470000 },
+        bisnis: { monthly: 149000, quarterly: 399000, yearly: 1430000 },
+      };
+
+      const periodLabels = {
+        monthly: '/ bulan',
+        quarterly: '/ 3 bulan',
+        yearly: '/ tahun',
+      };
+
+      function formatPrice(amount) {
+        if (amount >= 1000000) {
+          const val = amount / 1000000;
+          return 'Rp ' + (Number.isInteger(val) ? val : val.toFixed(1)) + 'JT';
+        }
+        return 'Rp ' + Math.round(amount / 1000) + 'K';
+      }
+
+      function updatePrices(period) {
+        document.querySelectorAll('.price-display').forEach(el => {
+          const plan = el.dataset.plan;
+          if (!prices[plan]) return;
+
+          const price = prices[plan][period];
+          const monthlyPrice = prices[plan].monthly;
+          const mainEl = el.querySelector('[data-price-main]');
+          const periodEl = el.querySelector('[data-price-period]');
+          const savingsEl = el.querySelector('[data-price-savings]');
+
+          // Animate price change
+          mainEl.style.opacity = '0';
+          mainEl.style.transform = 'translateY(-8px)';
+
+          setTimeout(() => {
+            mainEl.textContent = formatPrice(price);
+            periodEl.textContent = periodLabels[period];
+
+            if (period !== 'monthly') {
+              const months = period === 'quarterly' ? 3 : 12;
+              const perMonth = Math.round(price / months);
+              const savings = Math.round(((monthlyPrice - perMonth) / monthlyPrice) * 100);
+              savingsEl.textContent = `≈ Rp ${Math.round(perMonth / 1000)}K/bulan (hemat ${savings}%)`;
+              savingsEl.classList.remove('hidden');
+            } else {
+              savingsEl.classList.add('hidden');
+            }
+
+            mainEl.style.opacity = '1';
+            mainEl.style.transform = 'translateY(0)';
+          }, 150);
+        });
+      }
+
+      // Toggle buttons
+      document.querySelectorAll('.billing-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Update active state
+          document.querySelectorAll('.billing-btn').forEach(b => {
+            b.classList.remove('bg-white', 'text-purple-700', 'shadow-sm');
+            b.classList.add('text-slate-600');
+          });
+          btn.classList.add('bg-white', 'text-purple-700', 'shadow-sm');
+          btn.classList.remove('text-slate-600');
+
+          updatePrices(btn.dataset.period);
+        });
+      });
+    });
+  </script>
 
   <!-- CTA Section -->
   <section class="relative py-16 sm:py-24 lg:py-32 bg-slate-50">
