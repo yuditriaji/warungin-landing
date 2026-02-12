@@ -43,9 +43,10 @@ const appUrl = "https://app.warungin.com";
             Platform analitik bisnis untuk UMKM Indonesia. Catat transaksi, lihat insight penjualan, dan terima pembayaran langsung ke rekening Anda.
           </p>
           <div class="mt-8 flex flex-wrap gap-x-6 gap-y-4">
-            <a id="cta-install-btn" href={`${appUrl}/login`} class="inline-flex h-12 items-center justify-center rounded-lg bg-purple-600 px-8 text-base font-semibold text-white shadow-sm hover:bg-purple-700 transition-colors">
-              Coba Gratis
-            </a>
+            <button id="install-pwa-btn" class="inline-flex h-12 items-center justify-center rounded-lg bg-purple-600 px-8 text-base font-semibold text-white shadow-sm hover:bg-purple-700 transition-colors">
+              <span class="material-symbols-outlined mr-2" style="font-size: 20px;">get_app</span>
+              Install App
+            </button>
             <a href="#features" class="inline-flex h-12 items-center justify-center rounded-lg border border-slate-200 bg-white px-8 text-base font-semibold text-slate-900 shadow-sm hover:bg-slate-50 transition-colors">
               <span class="material-symbols-outlined mr-2" style="font-size: 20px;">play_circle</span>
               Lihat Demo
@@ -766,54 +767,70 @@ const appUrl = "https://app.warungin.com";
       </div>
     </div>
   </footer>
-</Layout>
+  
+  <!-- PWA Install Script -->
+  <script>
+    // PWA Install functionality
+    let deferredPrompt;
+    const installButton = document.getElementById('install-pwa-btn');
+    const appUrl = 'https://app.warungin.com';
 
-<script>
-  // PWA Install Logic
-  let deferredPrompt;
-  const installBtn = document.getElementById('cta-install-btn');
-  const appUrl = "https://app.warungin.com";
-
-  if (installBtn) {
-    // Hidden by default logic handled by not changing text, 
-    // effectively showing "Coba Gratis" fallback if not installable.
-
+    // Listen for the beforeinstallprompt event
     window.addEventListener('beforeinstallprompt', (e) => {
       // Prevent the mini-infobar from appearing on mobile
       e.preventDefault();
-      // Stash the event so it can be triggered later.
+      // Stash the event so it can be triggered later
       deferredPrompt = e;
-      
-      // Update UI notify the user they can install the PWA
-      installBtn.textContent = 'Install App';
-      // Add icon if desired
-      installBtn.innerHTML = '<span class="material-symbols-outlined mr-2">download</span> Install App';
-      
-      installBtn.setAttribute('href', '#');
-      
-      installBtn.addEventListener('click', async (evt) => {
-        evt.preventDefault();
-        if (deferredPrompt) {
-          // Show the install prompt
-          deferredPrompt.prompt();
-          // Wait for the user to respond to the prompt
-          const { outcome } = await deferredPrompt.userChoice;
-          console.log(`User response to the install prompt: ${outcome}`);
-          deferredPrompt = null;
-        }
-      });
+      // Show the install button (it's already visible, so no need to change display)
+      console.log('PWA install prompt available');
     });
 
+    // Handle the install button click
+    if (installButton) {
+      installButton.addEventListener('click', async () => {
+        if (!deferredPrompt) {
+          // If no install prompt available, redirect to app
+          console.log('No install prompt available, redirecting to app');
+          window.location.href = `${appUrl}/login`;
+          return;
+        }
+
+        // Show the install prompt
+        deferredPrompt.prompt();
+        
+        // Wait for the user to respond to the prompt
+        const { outcome } = await deferredPrompt.userChoice;
+        
+        if (outcome === 'accepted') {
+          console.log('User accepted the PWA install prompt');
+        } else {
+          console.log('User dismissed the PWA install prompt');
+        }
+        
+        // Clear the deferredPrompt variable
+        deferredPrompt = null;
+      });
+    }
+
+    // Check if app is already installed
     window.addEventListener('appinstalled', () => {
-      // Log install to analytics
-      console.log('PWA was installed');
-      // Update button to open app
-      installBtn.innerHTML = 'Buka App';
-      installBtn.setAttribute('href', appUrl);
-      // Remove click listener
-      // Clone and replace to remove listeners easily
-      const newBtn = installBtn.cloneNode(true);
-      installBtn.parentNode.replaceChild(newBtn, installBtn);
+      console.log('PWA was installed successfully');
+      // Optionally redirect to the app
+      setTimeout(() => {
+        window.location.href = appUrl;
+      }, 1000);
     });
-  }
-</script>
+
+    // For iOS devices or browsers that don't support beforeinstallprompt
+    // Fallback: redirect to app if PWA install is not available after 2 seconds
+    setTimeout(() => {
+      if (!deferredPrompt && installButton) {
+        // This means PWA install is not supported
+        // Keep the button but make it redirect to app
+        installButton.addEventListener('click', () => {
+          window.location.href = `${appUrl}/login`;
+        }, { once: true });
+      }
+    }, 2000);
+  </script>
+</Layout>
