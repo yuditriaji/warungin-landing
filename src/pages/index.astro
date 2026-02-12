@@ -43,7 +43,7 @@ const appUrl = "https://app.warungin.com";
             Platform analitik bisnis untuk UMKM Indonesia. Catat transaksi, lihat insight penjualan, dan terima pembayaran langsung ke rekening Anda.
           </p>
           <div class="mt-8 flex flex-wrap gap-x-6 gap-y-4">
-            <a href={`${appUrl}/login`} class="inline-flex h-12 items-center justify-center rounded-lg bg-purple-600 px-8 text-base font-semibold text-white shadow-sm hover:bg-purple-700 transition-colors">
+            <a id="cta-install-btn" href={`${appUrl}/login`} class="inline-flex h-12 items-center justify-center rounded-lg bg-purple-600 px-8 text-base font-semibold text-white shadow-sm hover:bg-purple-700 transition-colors">
               Coba Gratis
             </a>
             <a href="#features" class="inline-flex h-12 items-center justify-center rounded-lg border border-slate-200 bg-white px-8 text-base font-semibold text-slate-900 shadow-sm hover:bg-slate-50 transition-colors">
@@ -767,3 +767,53 @@ const appUrl = "https://app.warungin.com";
     </div>
   </footer>
 </Layout>
+
+<script>
+  // PWA Install Logic
+  let deferredPrompt;
+  const installBtn = document.getElementById('cta-install-btn');
+  const appUrl = "https://app.warungin.com";
+
+  if (installBtn) {
+    // Hidden by default logic handled by not changing text, 
+    // effectively showing "Coba Gratis" fallback if not installable.
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent the mini-infobar from appearing on mobile
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+      
+      // Update UI notify the user they can install the PWA
+      installBtn.textContent = 'Install App';
+      // Add icon if desired
+      installBtn.innerHTML = '<span class="material-symbols-outlined mr-2">download</span> Install App';
+      
+      installBtn.setAttribute('href', '#');
+      
+      installBtn.addEventListener('click', async (evt) => {
+        evt.preventDefault();
+        if (deferredPrompt) {
+          // Show the install prompt
+          deferredPrompt.prompt();
+          // Wait for the user to respond to the prompt
+          const { outcome } = await deferredPrompt.userChoice;
+          console.log(`User response to the install prompt: ${outcome}`);
+          deferredPrompt = null;
+        }
+      });
+    });
+
+    window.addEventListener('appinstalled', () => {
+      // Log install to analytics
+      console.log('PWA was installed');
+      // Update button to open app
+      installBtn.innerHTML = 'Buka App';
+      installBtn.setAttribute('href', appUrl);
+      // Remove click listener
+      // Clone and replace to remove listeners easily
+      const newBtn = installBtn.cloneNode(true);
+      installBtn.parentNode.replaceChild(newBtn, installBtn);
+    });
+  }
+</script>
