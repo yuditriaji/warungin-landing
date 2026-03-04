@@ -19,8 +19,8 @@ const appUrl = "https://app.warungin.com";
         <a class="text-sm font-medium text-slate-600 hover:text-purple-600 transition-colors" href="/about">Tentang</a>
       </nav>
       <div class="flex items-center gap-4">
-        <a class="hidden text-sm font-medium text-slate-600 hover:text-slate-900 sm:block" href={`${appUrl}/login`}>Masuk</a>
-        <a href={`${appUrl}/login`} class="inline-flex h-9 items-center justify-center rounded-lg bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-purple-700 transition-colors">
+        <a class="hidden text-sm font-medium text-slate-600 hover:text-slate-900 sm:block" href={`${appUrl}/login`} onclick="window.trackLandingEvent('cta_click', { cta_label: 'masuk_navbar', location: 'navbar' })">Masuk</a>
+        <a href={`${appUrl}/login`} class="inline-flex h-9 items-center justify-center rounded-lg bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-purple-700 transition-colors" onclick="window.trackLandingEvent('cta_click', { cta_label: 'mulai_gratis_navbar', location: 'navbar' })">
           Mulai Gratis
         </a>
       </div>
@@ -43,10 +43,10 @@ const appUrl = "https://app.warungin.com";
             Platform analitik bisnis untuk UMKM Indonesia. Catat transaksi, lihat insight penjualan, dan terima pembayaran langsung ke rekening Anda.
           </p>
           <div class="mt-8 flex flex-wrap gap-x-6 gap-y-4">
-            <a href={`${appUrl}/login`} class="inline-flex h-12 items-center justify-center rounded-lg bg-purple-600 px-8 text-base font-semibold text-white shadow-sm hover:bg-purple-700 transition-colors">
+            <a href={`${appUrl}/login`} class="inline-flex h-12 items-center justify-center rounded-lg bg-purple-600 px-8 text-base font-semibold text-white shadow-sm hover:bg-purple-700 transition-colors" onclick="window.trackLandingEvent('cta_click', { cta_label: 'coba_gratis_hero', location: 'hero' })">
               Coba Gratis
             </a>
-            <a href="#features" class="inline-flex h-12 items-center justify-center rounded-lg border border-slate-200 bg-white px-8 text-base font-semibold text-slate-900 shadow-sm hover:bg-slate-50 transition-colors">
+            <a href="#features" class="inline-flex h-12 items-center justify-center rounded-lg border border-slate-200 bg-white px-8 text-base font-semibold text-slate-900 shadow-sm hover:bg-slate-50 transition-colors" onclick="window.trackLandingEvent('cta_click', { cta_label: 'lihat_demo_hero', location: 'hero' })">
               <span class="material-symbols-outlined mr-2" style="font-size: 20px;">play_circle</span>
               Lihat Demo
             </a>
@@ -481,7 +481,7 @@ const appUrl = "https://app.warungin.com";
             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Laporan dasar</li>
             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Diskon & promo</li>
           </ul>
-          <a href="/checkout?plan=gratis" class="block w-full text-center py-3 px-6 border-2 border-purple-600 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition-colors">
+          <a href="/checkout?plan=gratis" class="block w-full text-center py-3 px-6 border-2 border-purple-600 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition-colors" onclick="window.trackLandingEvent('pricing_cta_click', { plan: 'gratis', location: 'pricing' })">
             Mulai Gratis
           </a>
         </div>
@@ -508,7 +508,7 @@ const appUrl = "https://app.warungin.com";
             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Laporan laba/rugi</li>
             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Export data (CSV/Excel)</li>
           </ul>
-          <a href="/checkout?plan=pemula" class="block w-full text-center py-3 px-6 bg-purple-600 text-white font-semibold rounded-xl hover:bg-purple-700 transition-colors">
+          <a href="/checkout?plan=pemula" class="block w-full text-center py-3 px-6 bg-purple-600 text-white font-semibold rounded-xl hover:bg-purple-700 transition-colors" onclick="window.trackLandingEvent('pricing_cta_click', { plan: 'pemula', location: 'pricing' })">
             Pilih Pemula
           </a>
         </div>
@@ -533,7 +533,7 @@ const appUrl = "https://app.warungin.com";
             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Log aktivitas staff</li>
             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> WhatsApp support</li>
           </ul>
-          <a href="/checkout?plan=bisnis" class="block w-full text-center py-3 px-6 border-2 border-purple-600 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition-colors">
+          <a href="/checkout?plan=bisnis" class="block w-full text-center py-3 px-6 border-2 border-purple-600 text-purple-600 font-semibold rounded-xl hover:bg-purple-50 transition-colors" onclick="window.trackLandingEvent('pricing_cta_click', { plan: 'bisnis', location: 'pricing' })">
             Pilih Bisnis
           </a>
         </div>
@@ -651,7 +651,7 @@ const appUrl = "https://app.warungin.com";
             Bergabung dengan ribuan pemilik warung sukses. Mulai gratis tanpa kartu kredit.
           </p>
           <div class="mt-6 flex max-w-md gap-x-4">
-            <a href={`${appUrl}/login`} class="flex-none rounded-lg bg-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-purple-700 transition-colors">
+            <a href={`${appUrl}/login`} class="flex-none rounded-lg bg-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-purple-700 transition-colors" onclick="window.trackLandingEvent('cta_click', { cta_label: 'mulai_gratis_bottom_cta', location: 'bottom_cta' })">
               Mulai Gratis Sekarang
             </a>
           </div>

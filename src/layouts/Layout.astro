@@ -70,6 +70,25 @@ const structuredData = {
     
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     
+    <!-- Google Analytics 4 -->
+    <!-- Replace G-XXXXXXXXXX with your real Measurement ID from analytics.google.com -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCVH8LVXNP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YCVH8LVXNP', {
+        app_section: 'landing'
+      });
+
+      // Helper: fire a GA4 event from landing page scripts
+      window.trackLandingEvent = function(eventName, params) {
+        if (typeof gtag === 'function') {
+          gtag('event', eventName, Object.assign({ app_section: 'landing' }, params || {}));
+        }
+      };
+    </script>
+    
     <style is:global>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font-family: 'Inter', system-ui, sans-serif; }
